@@ -1,6 +1,8 @@
 require "rails_helper"
 
 describe Submission do
+  it { should have_one(:grade).dependent(:destroy) }
+
   let(:submission) { FactoryGirl.create(:submission) }
 
   describe "#body=" do
@@ -55,6 +57,23 @@ describe Submission do
       FactoryGirl.create_list(:comment, 5, submission: submission)
       submission.reload
       expect(submission.comments_count).to eq(5)
+    end
+  end
+  describe "authorizing grading" do
+    it "authorizes admins" do
+      admin = FactoryGirl.create(:admin)
+
+      expect(submission).to be_gradable_by(admin)
+    end
+
+    it "does not authorize nonadmins" do
+      user = FactoryGirl.create(:user)
+
+      expect(submission).to_not be_gradable_by(user)
+    end
+
+    it "does not authorize nil" do
+      expect(submission).to_not be_gradable_by(nil)
     end
   end
 end

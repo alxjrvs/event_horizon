@@ -41,6 +41,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "valid_attribute", require: false
   gem "coveralls", require: false
   gem "launchy", require: false
   gem "mocha", require: false

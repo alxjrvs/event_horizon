@@ -265,6 +265,41 @@ ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
+-- Name: feed_items; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE feed_items (
+    id integer NOT NULL,
+    subject_id integer NOT NULL,
+    subject_type character varying(255) NOT NULL,
+    recipient_id integer NOT NULL,
+    actor_id integer,
+    verb character varying(255) NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: feed_items_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE feed_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: feed_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE feed_items_id_seq OWNED BY feed_items.id;
+
+
+--
 -- Name: lessons; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -484,6 +519,39 @@ CREATE SEQUENCE source_files_id_seq
 --
 
 ALTER SEQUENCE source_files_id_seq OWNED BY source_files.id;
+
+
+--
+-- Name: submission_grades; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE submission_grades (
+    id integer NOT NULL,
+    submission_id integer NOT NULL,
+    score integer NOT NULL,
+    comment text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: submission_grades_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE submission_grades_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: submission_grades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE submission_grades_id_seq OWNED BY submission_grades.id;
 
 
 --
@@ -710,6 +778,13 @@ ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY feed_items ALTER COLUMN id SET DEFAULT nextval('feed_items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY lessons ALTER COLUMN id SET DEFAULT nextval('lessons_id_seq'::regclass);
 
 
@@ -746,6 +821,13 @@ ALTER TABLE ONLY ratings ALTER COLUMN id SET DEFAULT nextval('ratings_id_seq'::r
 --
 
 ALTER TABLE ONLY source_files ALTER COLUMN id SET DEFAULT nextval('source_files_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY submission_grades ALTER COLUMN id SET DEFAULT nextval('submission_grades_id_seq'::regclass);
 
 
 --
@@ -840,6 +922,14 @@ ALTER TABLE ONLY comments
 
 
 --
+-- Name: feed_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY feed_items
+    ADD CONSTRAINT feed_items_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: lessons_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -885,6 +975,14 @@ ALTER TABLE ONLY ratings
 
 ALTER TABLE ONLY source_files
     ADD CONSTRAINT source_files_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: submission_grades_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY submission_grades
+    ADD CONSTRAINT submission_grades_pkey PRIMARY KEY (id);
 
 
 --
@@ -1002,6 +1100,27 @@ CREATE INDEX index_comments_on_submission_id ON comments USING btree (submission
 --
 
 CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
+
+
+--
+-- Name: index_feed_items_on_actor_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_feed_items_on_actor_id ON feed_items USING btree (actor_id);
+
+
+--
+-- Name: index_feed_items_on_recipient_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_feed_items_on_recipient_id ON feed_items USING btree (recipient_id);
+
+
+--
+-- Name: index_feed_items_on_subject_id_and_subject_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_feed_items_on_subject_id_and_subject_type ON feed_items USING btree (subject_id, subject_type);
 
 
 --
@@ -1252,6 +1371,8 @@ INSERT INTO schema_migrations (version) VALUES ('20141217191055');
 
 INSERT INTO schema_migrations (version) VALUES ('20150102202537');
 
+INSERT INTO schema_migrations (version) VALUES ('20150116001337');
+
 INSERT INTO schema_migrations (version) VALUES ('20150122213444');
 
 INSERT INTO schema_migrations (version) VALUES ('20150123164500');
@@ -1291,4 +1412,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150219181529');
 INSERT INTO schema_migrations (version) VALUES ('20150219184301');
 
 INSERT INTO schema_migrations (version) VALUES ('20150219185122');
+
+INSERT INTO schema_migrations (version) VALUES ('20150227173610');
+
+INSERT INTO schema_migrations (version) VALUES ('20150301221447');
 

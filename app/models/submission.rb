@@ -3,6 +3,10 @@ class Submission < ActiveRecord::Base
   belongs_to :lesson
   has_many :comments
   has_many :files, -> { order :filename }, class_name: "SourceFile"
+  has_one :grade,
+    class_name: 'SubmissionGrade',
+    foreign_key: 'submission_id',
+    dependent: :destroy
 
   mount_uploader :archive, ArchiveUploader
 
@@ -41,6 +45,10 @@ class Submission < ActiveRecord::Base
 
   def self.has_submission_from?(user)
     exists?(user: user)
+  end
+
+  def gradable_by?(user)
+    user && user.admin?
   end
 
   private

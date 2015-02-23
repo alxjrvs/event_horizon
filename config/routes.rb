@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :submissions, only: [:show, :update] do
     resources :comments, only: [:create]
+    resources :grades,
+      only: [:create],
+      controller: 'submission_grades'
   end
 
   resources :assignments, only: [:show]
