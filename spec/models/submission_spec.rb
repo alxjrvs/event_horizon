@@ -57,4 +57,21 @@ describe Submission do
       expect(submission.comments_count).to eq(5)
     end
   end
+  describe "authorizing grading" do
+    it "authorizes admins" do
+      admin = FactoryGirl.create(:admin)
+
+      expect(submission).to be_gradable_by(admin)
+    end
+
+    it "does not authorize nonadmins" do
+      user = FactoryGirl.create(:user)
+
+      expect(submission).to_not be_gradable_by(user)
+    end
+
+    it "does not authorize nil" do
+      expect(submission).to_not be_gradable_by(nil)
+    end
+  end
 end

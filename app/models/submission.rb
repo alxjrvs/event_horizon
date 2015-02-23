@@ -43,6 +43,10 @@ class Submission < ActiveRecord::Base
     exists?(user: user)
   end
 
+  def gradable_by?(user)
+    user && user.admin?
+  end
+
   private
 
   def save_body
