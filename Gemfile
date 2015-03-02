@@ -26,6 +26,7 @@ gem "redis"
 gem 'draper', '~> 1.3'
 gem 'httparty'
 gem 'airbrake'
+gem "kaminari"
 
 group :development do
   gem "spring"
@@ -47,8 +48,6 @@ end
 group :test do
   gem "coveralls", require: false
   gem "launchy", require: false
-  gem "shoulda-matchers"
-  gem 'valid_attribute'
   gem "mocha", require: false
   gem "webmock"
   gem "database_cleaner"
