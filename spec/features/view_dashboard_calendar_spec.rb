@@ -36,9 +36,9 @@ feature "view dashboard calendar", :vcr do
     scenario "user sees event information" do
       sign_in_as(user)
       visit dashboard_path
-      expect(page).to have_content("Monday, February 9 at 7:00 PM")
+      expect(page).to have_content("Monday, at 7:00 PM")
       expect(page).to have_link("Community: Boston MySQL Monthly Meetup")
-      expect(page.all("table.calendar tr a").first[:href]).
+      expect(page.all(".calendar li a").first[:href]).
         to include 'www.google.com/calendar'
     end
 
@@ -46,8 +46,8 @@ feature "view dashboard calendar", :vcr do
       '.past-event'" do
       sign_in_as(user)
       visit dashboard_path
-      expect(page).to have_css("table.calendar tr.past-event")
-      within(first("tr.past-event")) do
+      expect(page).to have_css(".calendar li.past-event")
+      within(first(".past-event")) do
         expect(page).to have_content("Past Event")
       end
     end

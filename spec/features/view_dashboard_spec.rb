@@ -21,10 +21,12 @@ feature "view dashboard" do
 
       visit dashboard_path
 
-      expect(page).to order_text(
-        first_assignment.lesson.title, second_assignment.lesson.title)
+      within '.core-assignments' do
+        expect(page).to order_text(
+          first_assignment.lesson.title, second_assignment.lesson.title)
 
-      expect(page).to have_content(format_datetime(first_assignment.due_on))
+        expect(page).to have_content(format_datetime(first_assignment.due_on))
+      end
     end
   end
 end

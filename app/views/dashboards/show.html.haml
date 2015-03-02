@@ -5,7 +5,15 @@
 
 .row
   .large-8.columns
-    = render template: "calendar/show"
+    - if @feed_items.present?
+      %h3 Feed
+
+      %ul.feed-items
+        - @feed_items.each do |feed_item|
+          %li.box
+            %h4= feed_item.title
+            .feed-body= feed_item.body
+            .timestamp= time_ago_in_words(feed_item.created_at)
 
   .large-4.columns
     %h3 Latest Announcements
@@ -26,6 +34,8 @@
     - @teams.each do |team|
       %div
         = link_to "Read all announcements for #{team.name}", team_announcements_path(team), class: "button small alert"
+
+    = render template: "calendar/show"
 
 %h3 Core Assignments
 
@@ -71,12 +81,3 @@
         %td.submitted= assignment.submitted?(current_user) ? "yes" : "no"
         %td.reviewed= assignment.reviewed?(current_user) ? "yes" : "no"
 
-- if @feed_items.present?
-  %h3 Feed
-
-  %ul.feed-items
-    - @feed_items.each do |feed_item|
-      %li.box
-        %h4= feed_item.title
-        .feed-body= feed_item.body
-        .timestamp= time_ago_in_words(feed_item.created_at)
