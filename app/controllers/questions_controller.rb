@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_via_session,
+    except: [:show, :index]
+
   def index
     @filter = params[:query] || 'newest'
     @questions = QuestionDecorator.decorate_collection(Question.filtered(@filter))
