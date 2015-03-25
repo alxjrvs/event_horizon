@@ -71,7 +71,7 @@
 
 #grading
   - if @submission.gradable_by?(current_user)
-    = form_for [@submission, @grade], 
+    = form_for [@submission, @grade],
       url: submission_grades_path(@submission),
       as: :grade do |f|
 

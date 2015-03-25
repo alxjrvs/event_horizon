@@ -19,17 +19,13 @@ feature 'grade submission', %Q{
     FactoryGirl.create(:submission, lesson: lesson, user: user)
   end
 
-  scenario 'admin sees options on submission quality and can grade' do
+  scenario 'admin sees options on submission quality' do
     sign_in_as(admin)
 
     visit submission_path(submission)
 
-    expect(page).to have_content "Does not meet expectations."
-    expect(page).to have_content "Meets expectations."
-    expect(page).to have_content "Exceeds expectations."
-
     save_and_open_page
-    check "Meets expectations."
+    check "Meets expectation."
     fill_in "Grade comments", with: "Good job!"
     click "Submit Grade"
 
@@ -43,8 +39,6 @@ feature 'grade submission', %Q{
 
     expect(page).to_not have_content "Does not meet expectations."
   end
-
-
 
   scenario 'admin cannot update existing grade'
   scenario 'admin can see grade'
