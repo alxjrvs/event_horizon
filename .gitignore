@@ -36,4 +36,5 @@
 
 # Ignore tags
 /tag
+/tags
 *.swo
