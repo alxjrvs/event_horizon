@@ -300,6 +300,69 @@ ALTER SEQUENCE feed_items_id_seq OWNED BY feed_items.id;
 
 
 --
+-- Name: identities; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE identities (
+    id integer NOT NULL,
+    uid character varying(255) NOT NULL,
+    provider character varying(255) NOT NULL,
+    user_id integer NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: identities_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE identities_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: identities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE identities_id_seq OWNED BY identities.id;
+
+
+--
+-- Name: lesson_tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE lesson_tags (
+    id integer NOT NULL,
+    lesson_id integer NOT NULL,
+    tag_id integer NOT NULL
+);
+
+
+--
+-- Name: lesson_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE lesson_tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: lesson_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE lesson_tags_id_seq OWNED BY lesson_tags.id;
+
+
+--
 -- Name: lessons; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -314,7 +377,6 @@ CREATE TABLE lessons (
     archive character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    "position" integer NOT NULL,
     visibility character varying(255) DEFAULT 'public'::character varying NOT NULL
 );
 
@@ -406,6 +468,38 @@ ALTER SEQUENCE question_queues_id_seq OWNED BY question_queues.id;
 
 
 --
+-- Name: question_watchings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE question_watchings (
+    id integer NOT NULL,
+    question_id integer NOT NULL,
+    user_id integer NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: question_watchings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE question_watchings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: question_watchings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE question_watchings_id_seq OWNED BY question_watchings.id;
+
+
+--
 -- Name: questions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -421,7 +515,8 @@ CREATE TABLE questions (
     searchable tsvector,
     question_queue_id integer,
     vote_cache integer DEFAULT 0,
-    visible boolean DEFAULT true
+    visible boolean DEFAULT true,
+    category character varying(255) DEFAULT 'Other'::character varying
 );
 
 
@@ -591,6 +686,36 @@ ALTER SEQUENCE submissions_id_seq OWNED BY submissions.id;
 
 
 --
+-- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE tags (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    description character varying(255)
+);
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
+
+
+--
 -- Name: team_memberships; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -660,15 +785,14 @@ ALTER SEQUENCE teams_id_seq OWNED BY teams.id;
 
 CREATE TABLE users (
     id integer NOT NULL,
-    uid character varying(255) NOT NULL,
-    provider character varying(255) NOT NULL,
     email character varying(255) NOT NULL,
     username character varying(255) NOT NULL,
-    name character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     role character varying(255) DEFAULT 'member'::character varying NOT NULL,
-    token character varying(255) NOT NULL
+    token character varying(255) NOT NULL,
+    first_name character varying(255),
+    last_name character varying(255)
 );
 
 
@@ -785,6 +909,20 @@ ALTER TABLE ONLY feed_items ALTER COLUMN id SET DEFAULT nextval('feed_items_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY identities ALTER COLUMN id SET DEFAULT nextval('identities_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY lesson_tags ALTER COLUMN id SET DEFAULT nextval('lesson_tags_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY lessons ALTER COLUMN id SET DEFAULT nextval('lessons_id_seq'::regclass);
 
 
@@ -800,6 +938,13 @@ ALTER TABLE ONLY question_comments ALTER COLUMN id SET DEFAULT nextval('question
 --
 
 ALTER TABLE ONLY question_queues ALTER COLUMN id SET DEFAULT nextval('question_queues_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY question_watchings ALTER COLUMN id SET DEFAULT nextval('question_watchings_id_seq'::regclass);
 
 
 --
@@ -835,6 +980,13 @@ ALTER TABLE ONLY submission_grades ALTER COLUMN id SET DEFAULT nextval('submissi
 --
 
 ALTER TABLE ONLY submissions ALTER COLUMN id SET DEFAULT nextval('submissions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclass);
 
 
 --
@@ -930,6 +1082,22 @@ ALTER TABLE ONLY feed_items
 
 
 --
+-- Name: identities_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY identities
+    ADD CONSTRAINT identities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: lesson_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY lesson_tags
+    ADD CONSTRAINT lesson_tags_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: lessons_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -951,6 +1119,14 @@ ALTER TABLE ONLY question_comments
 
 ALTER TABLE ONLY question_queues
     ADD CONSTRAINT question_queues_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: question_watchings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY question_watchings
+    ADD CONSTRAINT question_watchings_pkey PRIMARY KEY (id);
 
 
 --
@@ -991,6 +1167,14 @@ ALTER TABLE ONLY submission_grades
 
 ALTER TABLE ONLY submissions
     ADD CONSTRAINT submissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
 
 
 --
@@ -1124,6 +1308,34 @@ CREATE INDEX index_feed_items_on_subject_id_and_subject_type ON feed_items USING
 
 
 --
+-- Name: index_identities_on_uid_and_provider; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_identities_on_uid_and_provider ON identities USING btree (uid, provider);
+
+
+--
+-- Name: index_identities_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_identities_on_user_id ON identities USING btree (user_id);
+
+
+--
+-- Name: index_lesson_tags_on_lesson_id_and_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_lesson_tags_on_lesson_id_and_tag_id ON lesson_tags USING btree (lesson_id, tag_id);
+
+
+--
+-- Name: index_lesson_tags_on_tag_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_lesson_tags_on_tag_id ON lesson_tags USING btree (tag_id);
+
+
+--
 -- Name: index_lessons_on_searchable; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1142,6 +1354,13 @@ CREATE UNIQUE INDEX index_lessons_on_slug ON lessons USING btree (slug);
 --
 
 CREATE INDEX index_lessons_on_visibility ON lessons USING btree (visibility);
+
+
+--
+-- Name: index_question_watchings_on_question_id_and_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_question_watchings_on_question_id_and_user_id ON question_watchings USING btree (question_id, user_id);
 
 
 --
@@ -1226,13 +1445,6 @@ CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 --
 
 CREATE UNIQUE INDEX index_users_on_lowercase_username ON users USING btree (lower((username)::text));
-
-
---
--- Name: index_users_on_uid_and_provider; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE UNIQUE INDEX index_users_on_uid_and_provider ON users USING btree (uid, provider);
 
 
 --
@@ -1395,6 +1607,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150210202615');
 
 INSERT INTO schema_migrations (version) VALUES ('20150210203036');
 
+INSERT INTO schema_migrations (version) VALUES ('20150211121322');
+
 INSERT INTO schema_migrations (version) VALUES ('20150212144048');
 
 INSERT INTO schema_migrations (version) VALUES ('20150212145515');
@@ -1405,6 +1619,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150214174452');
 
 INSERT INTO schema_migrations (version) VALUES ('20150215023727');
 
+INSERT INTO schema_migrations (version) VALUES ('20150216154949');
+
 INSERT INTO schema_migrations (version) VALUES ('20150216231227');
 
 INSERT INTO schema_migrations (version) VALUES ('20150219181529');
@@ -1413,7 +1629,19 @@ INSERT INTO schema_migrations (version) VALUES ('20150219184301');
 
 INSERT INTO schema_migrations (version) VALUES ('20150219185122');
 
+INSERT INTO schema_migrations (version) VALUES ('20150224193238');
+
+INSERT INTO schema_migrations (version) VALUES ('20150226194335');
+
+INSERT INTO schema_migrations (version) VALUES ('20150226195210');
+
+INSERT INTO schema_migrations (version) VALUES ('20150227154100');
+
 INSERT INTO schema_migrations (version) VALUES ('20150227173610');
 
 INSERT INTO schema_migrations (version) VALUES ('20150301221447');
+
+INSERT INTO schema_migrations (version) VALUES ('20150303153620');
+
+INSERT INTO schema_migrations (version) VALUES ('20150313135017');
 

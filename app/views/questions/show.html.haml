@@ -23,7 +23,7 @@
           %li.qa-comment
             = comment.body
             %span.comment-user
-              = " - #{comment.user.name}, #{comment_time(comment.created_at)} "
+              = " - #{comment.user.username}, #{comment_time(comment.created_at)} "
             - if comment.user == current_user
               = link_to question_question_comment_path(@question, comment),
                 method: :delete,
@@ -43,9 +43,10 @@
         = link_to @question.user.username, user_path(@question.user)
         asked on
         .created_at= format_datetime(@question.created_at)
-        - if @question.user == current_user
-          %br
+        %br
+        - if @question.editable_by?(current_user)
           = link_to "Edit Question", edit_question_path(@question), class: "button success tiny"
+        - if current_user.can_edit?(@question)
           = link_to "Delete question", question_path(@question),
             method: :delete,
             class: "button alert tiny",
@@ -72,7 +73,7 @@
                 %li.qa-comment
                   = comment.body
                   %span.comment-user
-                    = " - #{comment.user.name}, #{comment_time(comment.created_at)}"
+                    = " - #{comment.user.username}, #{comment_time(comment.created_at)}"
                   - if comment.user == current_user
                     = link_to answer_answer_comment_path(answer, comment),
                       method: :delete,
@@ -92,14 +93,14 @@
             = link_to answer.user.username, user_path(answer.user)
             answered on
             .answered_at= format_datetime(answer.created_at)
-          - if @question.accepted_answer_owned_by_current_user?(answer)
+          - if @question.can_unaccept?
             .accepted
               %i.fi-check.large
               accepted answer
               = form_for @question do |f|
                 = f.hidden_field :accepted_answer_id, value: nil
                 = f.submit "Unaccept answer", class: "tiny button", id: "unaccept-answer"
-          - elsif @question.user == current_user
+          - elsif @question.can_accept?
             .accept-form
               = form_for @question do |f|
                 = f.hidden_field :accepted_answer_id, value: answer.id
@@ -111,13 +112,14 @@
               class: "button tiny alert",
               data: { confirm: "Are you sure?" }
 
-#new-answer
-  = form_for [@question, @answer] do |f|
-    = field_set_tag "Answer Question" do
+- unless current_user.guest?
+  #new-answer
+    = form_for [@question, @answer] do |f|
+      = field_set_tag "Answer Question" do
 
-      = f.label :body, "Answer"
-      = f.text_area :body, rows: 10
+        = f.label :body, "Answer"
+        = f.text_area :body, rows: 10
 
-      = f.submit "Submit Answer", class: "button"
-      - if current_user.try(:role) == 'admin'
-        = link_to "Let's Talk!", question_queues_path(question_id: @question), method: :post, class: "button alert"
+        = f.submit "Submit Answer", class: "button"
+        - if current_user.try(:role) == 'admin'
+          = link_to "Let's Talk!", question_queues_path(question_id: @question), method: :post, class: "button alert"

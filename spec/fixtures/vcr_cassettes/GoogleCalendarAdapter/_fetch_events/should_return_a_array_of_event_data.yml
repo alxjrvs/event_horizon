@@ -3978,7 +3978,11 @@ http_interactions:
     headers:
       User-Agent:
       - |-
+<<<<<<< HEAD
         HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.10.1
+=======
+        HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.9.5
+>>>>>>> master
          (gzip)
       Accept-Encoding:
       - gzip
@@ -4002,7 +4006,11 @@ http_interactions:
       Expires:
       - Fri, 01 Jan 1990 00:00:00 GMT
       Date:
+<<<<<<< HEAD
       - Mon, 02 Mar 2015 20:10:32 GMT
+=======
+      - Fri, 27 Feb 2015 17:40:10 GMT
+>>>>>>> master
       Vary:
       - Origin
       - X-Origin
@@ -4027,5 +4035,9 @@ http_interactions:
       string: !binary |-
         H4sIAAAAAAAAAPPLL1Fwyy/NSwEATYx0sQkAAAA=
     http_version: 
+<<<<<<< HEAD
   recorded_at: Mon, 02 Mar 2015 20:10:32 GMT
+=======
+  recorded_at: Fri, 27 Feb 2015 17:40:12 GMT
+>>>>>>> master
 recorded_with: VCR 2.9.3

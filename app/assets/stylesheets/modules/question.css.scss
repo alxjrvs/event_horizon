@@ -17,14 +17,11 @@
   clear: both;
 }
 
-.question-title .question-votes {
+.question-votes {
   float: left;
   margin-top: 10px;
   margin-left: 10px;
-}
-
-.question-title h2.title {
-  float: left;
+  margin-right: 10px;
 }
 
 .upvote, .downvote {
@@ -38,16 +35,23 @@
   color: #000;
 }
 
+.answer-count {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
 .answer-count, .vote-count {
   color: gray;
   font-size: 1.2em;
   font-style: italic;
   text-align: center;
+  margin-left: 10px;
 }
 
 .vote-count {
   border-top: 2px solid $border-color;
   padding-top: .5em;
+  margin-bottom: 0;
 }
 
 #answers .answer-count {
@@ -64,4 +68,28 @@
 
 .downvote.cast {
   color: #f04124;
+}
+
+.deleted-question {
+  background: #eee;
+}
+
+.questions .title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.watching {
+  display: block;
+  margin: 20px 10px 20px 0;
+}
+
+.question-category-tag {
+  padding: 11px 20px;
+  background: #008cba;
+  color: white;
+  margin: 20px 10px 20px 0;
+  font-size: 11px;
+  display: block;
+
 }

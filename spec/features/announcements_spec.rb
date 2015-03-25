@@ -22,8 +22,10 @@ feature "announcements" do
         expect(page).to have_content(announcement.title)
       end
 
-      old_announcements.each do |announcement|
-        expect(page).to_not have_content(announcement.title)
+      within '.table-announcement' do
+        old_announcements.each do |announcement|
+          expect(page).to_not have_content(announcement.title)
+        end
       end
     end
 
@@ -63,10 +65,15 @@ feature "announcements" do
       visit dashboard_path
       expect(page).to have_content(announcement.title)
 
-      click_link announcement.title
+      within '.table-announcement' do
+        click_link announcement.title
+      end
+
       click_on "Got It"
 
-      expect(page).to_not have_content(announcement.title)
+      within '.table-announcement' do
+        expect(page).to_not have_content(announcement.title)
+      end
       expect(page).to have_content("Dashboard")
     end
   end
