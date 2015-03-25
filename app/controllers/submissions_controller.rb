@@ -13,7 +13,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.
       authorized_find(current_user, params[:id]) || not_found
     @comment = Comment.new
-    @grade = @submission.build_grade
+    @grade = @submission.grade || @submission.build_grade
   end
 
   def update

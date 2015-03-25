@@ -78,10 +78,15 @@
       = f.label :score
       - @grade.class.scores.each do |key, value|
         = f.label "score_#{key}", "#{key.humanize}."
-        = f.radio_button :score, value, id: "score_#{key}"
+        = f.radio_button :score, key, id: "grade_score_#{key}"
       = f.label :comment, "Grade comments"
       = f.text_area :comment, rows: 5
-      =f.submit ""
+      = f.submit "Submit Grade"
+  - elsif @submission.grade_viewable_by?(current_user)
+    Grade:
+    %strong= @submission.grade.score.humanize
+    Comment:
+    =simple_format(@submission.grade.comment)
 
 #download
   - if current_user.admin?

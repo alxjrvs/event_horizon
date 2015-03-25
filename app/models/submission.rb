@@ -48,7 +48,11 @@ class Submission < ActiveRecord::Base
   end
 
   def gradable_by?(user)
-    user && user.admin?
+    user && user.admin? && (grade.nil? || grade.new_record?)
+  end
+
+  def grade_viewable_by?(u)
+    grade.persisted? && u && (u.admin? || u == user)
   end
 
   private

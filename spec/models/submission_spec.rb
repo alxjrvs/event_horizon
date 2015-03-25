@@ -75,5 +75,27 @@ describe Submission do
     it "does not authorize nil" do
       expect(submission).to_not be_gradable_by(nil)
     end
+
+    it 'is not gradable if it has already been graded' do
+      admin = FactoryGirl.build(:admin)
+      grade = FactoryGirl.create(:submission_grade)
+      expect(grade.submission).to_not be_gradable_by(admin)
+    end
+  end
+
+  it 'allows an admin to see a grade' do
+    admin = FactoryGirl.build(:admin)
+    grade = FactoryGirl.create(:submission_grade)
+    expect(grade.submission).to be_grade_viewable_by(admin)
+  end
+
+  it 'allows the submission author to see a grade' do
+    grade = FactoryGirl.create(:submission_grade)
+    expect(grade.submission).to be_grade_viewable_by(grade.submission.user)
+  end
+
+  it 'does not allow anyone else to see a grade' do
+    grade = FactoryGirl.create(:submission_grade)
+    expect(grade.submission).to_not be_grade_viewable_by(FactoryGirl.build(:user))
   end
 end
