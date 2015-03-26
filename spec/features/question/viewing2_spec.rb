@@ -117,4 +117,12 @@ feature "questions" do
       expect(page).to_not have_button("Accept Answer")
     end
   end
+
+  context "as an unauthenticated guest" do
+    scenario "attempt to ask a question" do
+      visit new_question_path
+      expect(page).
+        to have_content("You need to sign in before continuing.")
+    end
+  end
 end
