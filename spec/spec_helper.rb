@@ -2,6 +2,7 @@ require "coveralls"
 Coveralls.wear!("rails")
 require File.join(File.dirname(__FILE__), 'support/vcr')
 require "mocha/api"
+require "valid_attribute"
 
 RSpec.configure do |config|
   config.filter_run :focus

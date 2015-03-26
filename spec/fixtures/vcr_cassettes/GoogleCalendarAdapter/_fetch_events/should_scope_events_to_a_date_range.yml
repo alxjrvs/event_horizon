@@ -5,7 +5,7 @@ http_interactions:
     uri: https://accounts.google.com/o/oauth2/token
     body:
       encoding: ASCII-8BIT
-      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIzNDEyNDQ4NTg1NjktbWs3bDNpZWhzMnZqYmdqNXRjdmYyajNnYWhnbmMycHJAZGV2ZWxvcGVyLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvY2FsZW5kYXIucmVhZG9ubHkiLCJhdWQiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vby9vYXV0aDIvdG9rZW4iLCJleHAiOjE0MjQzODAzMzUsImlhdCI6MTQyNDM4MDIxNX0.QnR0qiWp4uDKeXVhAmtnV3yBiCD49iBzGDJVfXqqovygkafmbLw5LvFLSCmKcOMI5db6wLYYOVrGcO5-EN4KSra-HxDSn_wkV75f8lKT1g-kjs7mO2qRmgXTfYF2AXS9zcDIy5WP6yz_gg1yFzLTc6O2kra6CPOyUA771raseZ4
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiIzNDEyNDQ4NTg1NjktbWs3bDNpZWhzMnZqYmdqNXRjdmYyajNnYWhnbmMycHJAZGV2ZWxvcGVyLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvY2FsZW5kYXIucmVhZG9ubHkiLCJhdWQiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vby9vYXV0aDIvdG9rZW4iLCJleHAiOjE0Mjc0MDExMTAsImlhdCI6MTQyNzQwMDk5MH0.eysmnlLsBY6cfbJd69YBEdeEy5DIo0ZyGWskSZ3oGColNlae1NgvWGcN-T_f8PP4ipypcNb0WQdHrlCamGfme2inPH-UBxyqgi4bS2TN-Hwq4Una1tQLGQ0q_AiqDLDrpOBnI9h5l4isQAqpy-LiHD9v2E5RMidejBb2qHWKo0o
     headers:
       Cache-Control:
       - no-store
@@ -31,7 +31,7 @@ http_interactions:
       Expires:
       - Fri, 01 Jan 1990 00:00:00 GMT
       Date:
-      - Thu, 19 Feb 2015 21:11:15 GMT
+      - Thu, 26 Mar 2015 20:17:30 GMT
       Content-Disposition:
       - attachment; filename="json.txt"; filename*=UTF-8''json.txt
       X-Content-Type-Options:
@@ -43,7 +43,7 @@ http_interactions:
       Server:
       - GSE
       Alternate-Protocol:
-      - 443:quic,p=0.08
+      - 443:quic,p=0.5
       Accept-Ranges:
       - none
       Vary:
@@ -54,12 +54,12 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-          "access_token" : "ya29.HwH2e90KP1JiDWt3Uepwm-07Ew39j13sIKiNUxUqRbogcWOn2tn7NqNFP8l9YuJ6hQ-S3MhLlhJCdw",
+          "access_token" : "ya29.QgFUaF2HFpASDjJo9j-8KGLJYCTYrNqJbrCyMuelnyi3cKEjKB51Hn-Lp3pZpdLhpBCD0BLgo67KLA",
           "token_type" : "Bearer",
           "expires_in" : 3600
         }
     http_version: 
-  recorded_at: Thu, 19 Feb 2015 21:11:15 GMT
+  recorded_at: Thu, 26 Mar 2015 20:17:30 GMT
 - request:
     method: get
     uri: https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest
@@ -69,7 +69,7 @@ http_interactions:
     headers:
       User-Agent:
       - |-
-        HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.10.2
+        HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.9.5
          (gzip)
       Accept-Encoding:
       - gzip
@@ -83,16 +83,18 @@ http_interactions:
       message: OK
     headers:
       Expires:
-      - Thu, 19 Feb 2015 21:12:33 GMT
+      - Thu, 26 Mar 2015 20:21:49 GMT
       Date:
-      - Thu, 19 Feb 2015 21:07:33 GMT
+      - Thu, 26 Mar 2015 20:16:49 GMT
       Etag:
-      - '"ye6orv2F-1npMW3u9suM3a7C5Bo/CII8UXtEyyGxw2FxaRcFu68a2uc"'
+      - '"ye6orv2F-1npMW3u9suM3a7C5Bo/chLcvyYPKZ3ZS_IQi224D9BXunY"'
       Vary:
       - Origin
       - X-Origin
       Content-Type:
       - application/json; charset=UTF-8
+      Content-Encoding:
+      - gzip
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
@@ -100,2630 +102,274 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '93800'
+      - '11410'
       Server:
       - GSE
       Age:
-      - '222'
+      - '42'
       Cache-Control:
       - public, max-age=300, must-revalidate, no-transform
       Alternate-Protocol:
-      - 443:quic,p=0.08
+      - 443:quic,p=0.5
     body:
-      encoding: UTF-8
-      string: |
-        {
-         "kind": "discovery#restDescription",
-         "etag": "\"ye6orv2F-1npMW3u9suM3a7C5Bo/CII8UXtEyyGxw2FxaRcFu68a2uc\"",
-         "discoveryVersion": "v1",
-         "id": "calendar:v3",
-         "name": "calendar",
-         "version": "v3",
-         "revision": "20141123",
-         "title": "Calendar API",
-         "description": "Lets you manipulate events and other calendar data.",
-         "ownerDomain": "google.com",
-         "ownerName": "Google",
-         "icons": {
-          "x16": "http://www.google.com/images/icons/product/calendar-16.png",
-          "x32": "http://www.google.com/images/icons/product/calendar-32.png"
-         },
-         "documentationLink": "https://developers.google.com/google-apps/calendar/firstapp",
-         "protocol": "rest",
-         "baseUrl": "https://www.googleapis.com/calendar/v3/",
-         "basePath": "/calendar/v3/",
-         "rootUrl": "https://www.googleapis.com/",
-         "servicePath": "calendar/v3/",
-         "batchPath": "batch",
-         "parameters": {
-          "alt": {
-           "type": "string",
-           "description": "Data format for the response.",
-           "default": "json",
-           "enum": [
-            "json"
-           ],
-           "enumDescriptions": [
-            "Responses with Content-Type of application/json"
-           ],
-           "location": "query"
-          },
-          "fields": {
-           "type": "string",
-           "description": "Selector specifying which fields to include in a partial response.",
-           "location": "query"
-          },
-          "key": {
-           "type": "string",
-           "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
-           "location": "query"
-          },
-          "oauth_token": {
-           "type": "string",
-           "description": "OAuth 2.0 token for the current user.",
-           "location": "query"
-          },
-          "prettyPrint": {
-           "type": "boolean",
-           "description": "Returns response with indentations and line breaks.",
-           "default": "true",
-           "location": "query"
-          },
-          "quotaUser": {
-           "type": "string",
-           "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
-           "location": "query"
-          },
-          "userIp": {
-           "type": "string",
-           "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
-           "location": "query"
-          }
-         },
-         "auth": {
-          "oauth2": {
-           "scopes": {
-            "https://www.googleapis.com/auth/calendar": {
-             "description": "Manage your calendars"
-            },
-            "https://www.googleapis.com/auth/calendar.readonly": {
-             "description": "View your calendars"
-            }
-           }
-          }
-         },
-         "schemas": {
-          "Acl": {
-           "id": "Acl",
-           "type": "object",
-           "properties": {
-            "etag": {
-             "type": "string",
-             "description": "ETag of the collection."
-            },
-            "items": {
-             "type": "array",
-             "description": "List of rules on the access control list.",
-             "items": {
-              "$ref": "AclRule"
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the collection (\"calendar#acl\").",
-             "default": "calendar#acl"
-            },
-            "nextPageToken": {
-             "type": "string",
-             "description": "Token used to access the next page of this result. Omitted if no further results are available, in which case nextSyncToken is provided."
-            },
-            "nextSyncToken": {
-             "type": "string",
-             "description": "Token used at a later point in time to retrieve only the entries that have changed since this result was returned. Omitted if further results are available, in which case nextPageToken is provided."
-            }
-           }
-          },
-          "AclRule": {
-           "id": "AclRule",
-           "type": "object",
-           "properties": {
-            "etag": {
-             "type": "string",
-             "description": "ETag of the resource."
-            },
-            "id": {
-             "type": "string",
-             "description": "Identifier of the ACL rule."
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#aclRule\").",
-             "default": "calendar#aclRule"
-            },
-            "role": {
-             "type": "string",
-             "description": "The role assigned to the scope. Possible values are:  \n- \"none\" - Provides no access. \n- \"freeBusyReader\" - Provides read access to free/busy information. \n- \"reader\" - Provides read access to the calendar. Private events will appear to users with reader access, but event details will be hidden. \n- \"writer\" - Provides read and write access to the calendar. Private events will appear to users with writer access, and event details will be visible. \n- \"owner\" - Provides ownership of the calendar. This role has all of the permissions of the writer role with the additional ability to see and manipulate ACLs.",
-             "annotations": {
-              "required": [
-               "calendar.acl.insert"
-              ]
-             }
-            },
-            "scope": {
-             "type": "object",
-             "description": "The scope of the rule.",
-             "properties": {
-              "type": {
-               "type": "string",
-               "description": "The type of the scope. Possible values are:  \n- \"default\" - The public scope. This is the default value. \n- \"user\" - Limits the scope to a single user. \n- \"group\" - Limits the scope to a group. \n- \"domain\" - Limits the scope to a domain.  Note: The permissions granted to the \"default\", or public, scope apply to any user, authenticated or not.",
-               "annotations": {
-                "required": [
-                 "calendar.acl.insert"
-                ]
-               }
-              },
-              "value": {
-               "type": "string",
-               "description": "The email address of a user or group, or the name of a domain, depending on the scope type. Omitted for type \"default\"."
-              }
-             },
-             "annotations": {
-              "required": [
-               "calendar.acl.insert"
-              ]
-             }
-            }
-           }
-          },
-          "Calendar": {
-           "id": "Calendar",
-           "type": "object",
-           "properties": {
-            "description": {
-             "type": "string",
-             "description": "Description of the calendar. Optional."
-            },
-            "etag": {
-             "type": "string",
-             "description": "ETag of the resource."
-            },
-            "id": {
-             "type": "string",
-             "description": "Identifier of the calendar."
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#calendar\").",
-             "default": "calendar#calendar"
-            },
-            "location": {
-             "type": "string",
-             "description": "Geographic location of the calendar as free-form text. Optional."
-            },
-            "summary": {
-             "type": "string",
-             "description": "Title of the calendar.",
-             "annotations": {
-              "required": [
-               "calendar.calendars.insert"
-              ]
-             }
-            },
-            "timeZone": {
-             "type": "string",
-             "description": "The time zone of the calendar. (Formatted as an IANA Time Zone Database name, e.g. \"Europe/Zurich\".) Optional."
-            }
-           }
-          },
-          "CalendarList": {
-           "id": "CalendarList",
-           "type": "object",
-           "properties": {
-            "etag": {
-             "type": "string",
-             "description": "ETag of the collection."
-            },
-            "items": {
-             "type": "array",
-             "description": "Calendars that are present on the user's calendar list.",
-             "items": {
-              "$ref": "CalendarListEntry"
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the collection (\"calendar#calendarList\").",
-             "default": "calendar#calendarList"
-            },
-            "nextPageToken": {
-             "type": "string",
-             "description": "Token used to access the next page of this result. Omitted if no further results are available, in which case nextSyncToken is provided."
-            },
-            "nextSyncToken": {
-             "type": "string",
-             "description": "Token used at a later point in time to retrieve only the entries that have changed since this result was returned. Omitted if further results are available, in which case nextPageToken is provided."
-            }
-           }
-          },
-          "CalendarListEntry": {
-           "id": "CalendarListEntry",
-           "type": "object",
-           "properties": {
-            "accessRole": {
-             "type": "string",
-             "description": "The effective access role that the authenticated user has on the calendar. Read-only. Possible values are:  \n- \"freeBusyReader\" - Provides read access to free/busy information. \n- \"reader\" - Provides read access to the calendar. Private events will appear to users with reader access, but event details will be hidden. \n- \"writer\" - Provides read and write access to the calendar. Private events will appear to users with writer access, and event details will be visible. \n- \"owner\" - Provides ownership of the calendar. This role has all of the permissions of the writer role with the additional ability to see and manipulate ACLs."
-            },
-            "backgroundColor": {
-             "type": "string",
-             "description": "The main color of the calendar in the hexadecimal format \"#0088aa\". This property supersedes the index-based colorId property. Optional."
-            },
-            "colorId": {
-             "type": "string",
-             "description": "The color of the calendar. This is an ID referring to an entry in the calendar section of the colors definition (see the colors endpoint). Optional."
-            },
-            "defaultReminders": {
-             "type": "array",
-             "description": "The default reminders that the authenticated user has for this calendar.",
-             "items": {
-              "$ref": "EventReminder"
-             }
-            },
-            "deleted": {
-             "type": "boolean",
-             "description": "Whether this calendar list entry has been deleted from the calendar list. Read-only. Optional. The default is False.",
-             "default": "false"
-            },
-            "description": {
-             "type": "string",
-             "description": "Description of the calendar. Optional. Read-only."
-            },
-            "etag": {
-             "type": "string",
-             "description": "ETag of the resource."
-            },
-            "foregroundColor": {
-             "type": "string",
-             "description": "The foreground color of the calendar in the hexadecimal format \"#ffffff\". This property supersedes the index-based colorId property. Optional."
-            },
-            "hidden": {
-             "type": "boolean",
-             "description": "Whether the calendar has been hidden from the list. Optional. The default is False.",
-             "default": "false"
-            },
-            "id": {
-             "type": "string",
-             "description": "Identifier of the calendar.",
-             "annotations": {
-              "required": [
-               "calendar.calendarList.insert"
-              ]
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#calendarListEntry\").",
-             "default": "calendar#calendarListEntry"
-            },
-            "location": {
-             "type": "string",
-             "description": "Geographic location of the calendar as free-form text. Optional. Read-only."
-            },
-            "notificationSettings": {
-             "type": "object",
-             "description": "The notifications that the authenticated user is receiving for this calendar.",
-             "properties": {
-              "notifications": {
-               "type": "array",
-               "description": "The list of notifications set for this calendar.",
-               "items": {
-                "$ref": "CalendarNotification"
-               }
-              }
-             }
-            },
-            "primary": {
-             "type": "boolean",
-             "description": "Whether the calendar is the primary calendar of the authenticated user. Read-only. Optional. The default is False.",
-             "default": "false"
-            },
-            "selected": {
-             "type": "boolean",
-             "description": "Whether the calendar content shows up in the calendar UI. Optional. The default is False.",
-             "default": "false"
-            },
-            "summary": {
-             "type": "string",
-             "description": "Title of the calendar. Read-only."
-            },
-            "summaryOverride": {
-             "type": "string",
-             "description": "The summary that the authenticated user has set for this calendar. Optional."
-            },
-            "timeZone": {
-             "type": "string",
-             "description": "The time zone of the calendar. Optional. Read-only."
-            }
-           }
-          },
-          "CalendarNotification": {
-           "id": "CalendarNotification",
-           "type": "object",
-           "properties": {
-            "method": {
-             "type": "string",
-             "description": "The method used to deliver the notification. Possible values are:  \n- \"email\" - Reminders are sent via email. \n- \"sms\" - Reminders are sent via SMS. This value is read-only and is ignored on inserts and updates.",
-             "annotations": {
-              "required": [
-               "calendar.calendarList.insert",
-               "calendar.calendarList.update"
-              ]
-             }
-            },
-            "type": {
-             "type": "string",
-             "description": "The type of notification. Possible values are:  \n- \"eventCreation\" - Notification sent when a new event is put on the calendar. \n- \"eventChange\" - Notification sent when an event is changed. \n- \"eventCancellation\" - Notification sent when an event is cancelled. \n- \"eventResponse\" - Notification sent when an event is changed. \n- \"agenda\" - An agenda with the events of the day (sent out in the morning).",
-             "annotations": {
-              "required": [
-               "calendar.calendarList.insert",
-               "calendar.calendarList.update"
-              ]
-             }
-            }
-           }
-          },
-          "Channel": {
-           "id": "Channel",
-           "type": "object",
-           "properties": {
-            "address": {
-             "type": "string",
-             "description": "The address where notifications are delivered for this channel."
-            },
-            "expiration": {
-             "type": "string",
-             "description": "Date and time of notification channel expiration, expressed as a Unix timestamp, in milliseconds. Optional.",
-             "format": "int64"
-            },
-            "id": {
-             "type": "string",
-             "description": "A UUID or similar unique string that identifies this channel."
-            },
-            "kind": {
-             "type": "string",
-             "description": "Identifies this as a notification channel used to watch for changes to a resource. Value: the fixed string \"api#channel\".",
-             "default": "api#channel"
-            },
-            "params": {
-             "type": "object",
-             "description": "Additional parameters controlling delivery channel behavior. Optional.",
-             "additionalProperties": {
-              "type": "string",
-              "description": "Declares a new parameter by name."
-             }
-            },
-            "payload": {
-             "type": "boolean",
-             "description": "A Boolean value to indicate whether payload is wanted. Optional."
-            },
-            "resourceId": {
-             "type": "string",
-             "description": "An opaque ID that identifies the resource being watched on this channel. Stable across different API versions."
-            },
-            "resourceUri": {
-             "type": "string",
-             "description": "A version-specific identifier for the watched resource."
-            },
-            "token": {
-             "type": "string",
-             "description": "An arbitrary string delivered to the target address with each notification delivered over this channel. Optional."
-            },
-            "type": {
-             "type": "string",
-             "description": "The type of delivery mechanism used for this channel."
-            }
-           }
-          },
-          "ColorDefinition": {
-           "id": "ColorDefinition",
-           "type": "object",
-           "properties": {
-            "background": {
-             "type": "string",
-             "description": "The background color associated with this color definition."
-            },
-            "foreground": {
-             "type": "string",
-             "description": "The foreground color that can be used to write on top of a background with 'background' color."
-            }
-           }
-          },
-          "Colors": {
-           "id": "Colors",
-           "type": "object",
-           "properties": {
-            "calendar": {
-             "type": "object",
-             "description": "Palette of calendar colors, mapping from the color ID to its definition. A calendarListEntry resource refers to one of these color IDs in its color field. Read-only.",
-             "additionalProperties": {
-              "$ref": "ColorDefinition",
-              "description": "A calendar color defintion."
-             }
-            },
-            "event": {
-             "type": "object",
-             "description": "Palette of event colors, mapping from the color ID to its definition. An event resource may refer to one of these color IDs in its color field. Read-only.",
-             "additionalProperties": {
-              "$ref": "ColorDefinition",
-              "description": "An event color definition."
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#colors\").",
-             "default": "calendar#colors"
-            },
-            "updated": {
-             "type": "string",
-             "description": "Last modification time of the color palette (as a RFC 3339 timestamp). Read-only.",
-             "format": "date-time"
-            }
-           }
-          },
-          "Error": {
-           "id": "Error",
-           "type": "object",
-           "properties": {
-            "domain": {
-             "type": "string",
-             "description": "Domain, or broad category, of the error."
-            },
-            "reason": {
-             "type": "string",
-             "description": "Specific reason for the error. Some of the possible values are:  \n- \"groupTooBig\" - The group of users requested is too large for a single query. \n- \"tooManyCalendarsRequested\" - The number of calendars requested is too large for a single query. \n- \"notFound\" - The requested resource was not found. \n- \"internalError\" - The API service has encountered an internal error.  Additional error types may be added in the future, so clients should gracefully handle additional error statuses not included in this list."
-            }
-           }
-          },
-          "Event": {
-           "id": "Event",
-           "type": "object",
-           "properties": {
-            "anyoneCanAddSelf": {
-             "type": "boolean",
-             "description": "Whether anyone can invite themselves to the event. Optional. The default is False.",
-             "default": "false"
-            },
-            "attendees": {
-             "type": "array",
-             "description": "The attendees of the event.",
-             "items": {
-              "$ref": "EventAttendee"
-             }
-            },
-            "attendeesOmitted": {
-             "type": "boolean",
-             "description": "Whether attendees may have been omitted from the event's representation. When retrieving an event, this may be due to a restriction specified by the maxAttendee query parameter. When updating an event, this can be used to only update the participant's response. Optional. The default is False.",
-             "default": "false"
-            },
-            "colorId": {
-             "type": "string",
-             "description": "The color of the event. This is an ID referring to an entry in the event section of the colors definition (see the  colors endpoint). Optional."
-            },
-            "created": {
-             "type": "string",
-             "description": "Creation time of the event (as a RFC 3339 timestamp). Read-only.",
-             "format": "date-time"
-            },
-            "creator": {
-             "type": "object",
-             "description": "The creator of the event. Read-only.",
-             "properties": {
-              "displayName": {
-               "type": "string",
-               "description": "The creator's name, if available."
-              },
-              "email": {
-               "type": "string",
-               "description": "The creator's email address, if available."
-              },
-              "id": {
-               "type": "string",
-               "description": "The creator's Profile ID, if available."
-              },
-              "self": {
-               "type": "boolean",
-               "description": "Whether the creator corresponds to the calendar on which this copy of the event appears. Read-only. The default is False.",
-               "default": "false"
-              }
-             }
-            },
-            "description": {
-             "type": "string",
-             "description": "Description of the event. Optional."
-            },
-            "end": {
-             "$ref": "EventDateTime",
-             "description": "The (exclusive) end time of the event. For a recurring event, this is the end time of the first instance.",
-             "annotations": {
-              "required": [
-               "calendar.events.import",
-               "calendar.events.insert",
-               "calendar.events.update"
-              ]
-             }
-            },
-            "endTimeUnspecified": {
-             "type": "boolean",
-             "description": "Whether the end time is actually unspecified. An end time is still provided for compatibility reasons, even if this attribute is set to True. The default is False.",
-             "default": "false"
-            },
-            "etag": {
-             "type": "string",
-             "description": "ETag of the resource."
-            },
-            "extendedProperties": {
-             "type": "object",
-             "description": "Extended properties of the event.",
-             "properties": {
-              "private": {
-               "type": "object",
-               "description": "Properties that are private to the copy of the event that appears on this calendar.",
-               "additionalProperties": {
-                "type": "string",
-                "description": "The name of the private property and the corresponding value."
-               }
-              },
-              "shared": {
-               "type": "object",
-               "description": "Properties that are shared between copies of the event on other attendees' calendars.",
-               "additionalProperties": {
-                "type": "string",
-                "description": "The name of the shared property and the corresponding value."
-               }
-              }
-             }
-            },
-            "gadget": {
-             "type": "object",
-             "description": "A gadget that extends this event.",
-             "properties": {
-              "display": {
-               "type": "string",
-               "description": "The gadget's display mode. Optional. Possible values are:  \n- \"icon\" - The gadget displays next to the event's title in the calendar view. \n- \"chip\" - The gadget displays when the event is clicked."
-              },
-              "height": {
-               "type": "integer",
-               "description": "The gadget's height in pixels. Optional.",
-               "format": "int32"
-              },
-              "iconLink": {
-               "type": "string",
-               "description": "The gadget's icon URL."
-              },
-              "link": {
-               "type": "string",
-               "description": "The gadget's URL."
-              },
-              "preferences": {
-               "type": "object",
-               "description": "Preferences.",
-               "additionalProperties": {
-                "type": "string",
-                "description": "The preference name and corresponding value."
-               }
-              },
-              "title": {
-               "type": "string",
-               "description": "The gadget's title."
-              },
-              "type": {
-               "type": "string",
-               "description": "The gadget's type."
-              },
-              "width": {
-               "type": "integer",
-               "description": "The gadget's width in pixels. Optional.",
-               "format": "int32"
-              }
-             }
-            },
-            "guestsCanInviteOthers": {
-             "type": "boolean",
-             "description": "Whether attendees other than the organizer can invite others to the event. Optional. The default is True.",
-             "default": "true"
-            },
-            "guestsCanModify": {
-             "type": "boolean",
-             "description": "Whether attendees other than the organizer can modify the event. Optional. The default is False.",
-             "default": "false"
-            },
-            "guestsCanSeeOtherGuests": {
-             "type": "boolean",
-             "description": "Whether attendees other than the organizer can see who the event's attendees are. Optional. The default is True.",
-             "default": "true"
-            },
-            "hangoutLink": {
-             "type": "string",
-             "description": "An absolute link to the Google+ hangout associated with this event. Read-only."
-            },
-            "htmlLink": {
-             "type": "string",
-             "description": "An absolute link to this event in the Google Calendar Web UI. Read-only."
-            },
-            "iCalUID": {
-             "type": "string",
-             "description": "Event ID in the iCalendar format.",
-             "annotations": {
-              "required": [
-               "calendar.events.import"
-              ]
-             }
-            },
-            "id": {
-             "type": "string",
-             "description": "Identifier of the event. When creating new single or recurring events, you can specify their IDs. Provided IDs must follow these rules:  \n- characters allowed in the ID are those used in base32hex encoding, i.e. lowercase letters a-v and digits 0-9, see section 3.1.2 in RFC2938 \n- the length of the ID must be between 5 and 1024 characters \n- the ID must be unique per calendar  Due to the globally distributed nature of the system, we cannot guarantee that ID collisions will be detected at event creation time. To minimize the risk of collisions we recommend using an established UUID algorithm such as one described in RFC4122."
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#event\").",
-             "default": "calendar#event"
-            },
-            "location": {
-             "type": "string",
-             "description": "Geographic location of the event as free-form text. Optional."
-            },
-            "locked": {
-             "type": "boolean",
-             "description": "Whether this is a locked event copy where no changes can be made to the main event fields \"summary\", \"description\", \"location\", \"start\", \"end\" or \"recurrence\". The default is False. Read-Only.",
-             "default": "false"
-            },
-            "organizer": {
-             "type": "object",
-             "description": "The organizer of the event. If the organizer is also an attendee, this is indicated with a separate entry in attendees with the organizer field set to True. To change the organizer, use the move operation. Read-only, except when importing an event.",
-             "properties": {
-              "displayName": {
-               "type": "string",
-               "description": "The organizer's name, if available."
-              },
-              "email": {
-               "type": "string",
-               "description": "The organizer's email address, if available."
-              },
-              "id": {
-               "type": "string",
-               "description": "The organizer's Profile ID, if available."
-              },
-              "self": {
-               "type": "boolean",
-               "description": "Whether the organizer corresponds to the calendar on which this copy of the event appears. Read-only. The default is False.",
-               "default": "false"
-              }
-             }
-            },
-            "originalStartTime": {
-             "$ref": "EventDateTime",
-             "description": "For an instance of a recurring event, this is the time at which this event would start according to the recurrence data in the recurring event identified by recurringEventId. Immutable."
-            },
-            "privateCopy": {
-             "type": "boolean",
-             "description": "Whether this is a private event copy where changes are not shared with other copies on other calendars. Optional. Immutable. The default is False.",
-             "default": "false"
-            },
-            "recurrence": {
-             "type": "array",
-             "description": "List of RRULE, EXRULE, RDATE and EXDATE lines for a recurring event. This field is omitted for single events or instances of recurring events.",
-             "items": {
-              "type": "string"
-             }
-            },
-            "recurringEventId": {
-             "type": "string",
-             "description": "For an instance of a recurring event, this is the event ID of the recurring event itself. Immutable."
-            },
-            "reminders": {
-             "type": "object",
-             "description": "Information about the event's reminders for the authenticated user.",
-             "properties": {
-              "overrides": {
-               "type": "array",
-               "description": "If the event doesn't use the default reminders, this lists the reminders specific to the event, or, if not set, indicates that no reminders are set for this event.",
-               "items": {
-                "$ref": "EventReminder"
-               }
-              },
-              "useDefault": {
-               "type": "boolean",
-               "description": "Whether the default reminders of the calendar apply to the event."
-              }
-             }
-            },
-            "sequence": {
-             "type": "integer",
-             "description": "Sequence number as per iCalendar.",
-             "format": "int32"
-            },
-            "source": {
-             "type": "object",
-             "description": "Source of an event from which it was created; for example a web page, an email message or any document identifiable by an URL using HTTP/HTTPS protocol. Accessible only by the creator of the event.",
-             "properties": {
-              "title": {
-               "type": "string",
-               "description": "Title of the source; for example a title of a web page or an email subject."
-              },
-              "url": {
-               "type": "string",
-               "description": "URL of the source pointing to a resource. URL's protocol must be HTTP or HTTPS."
-              }
-             }
-            },
-            "start": {
-             "$ref": "EventDateTime",
-             "description": "The (inclusive) start time of the event. For a recurring event, this is the start time of the first instance.",
-             "annotations": {
-              "required": [
-               "calendar.events.import",
-               "calendar.events.insert",
-               "calendar.events.update"
-              ]
-             }
-            },
-            "status": {
-             "type": "string",
-             "description": "Status of the event. Optional. Possible values are:  \n- \"confirmed\" - The event is confirmed. This is the default status. \n- \"tentative\" - The event is tentatively confirmed. \n- \"cancelled\" - The event is cancelled."
-            },
-            "summary": {
-             "type": "string",
-             "description": "Title of the event."
-            },
-            "transparency": {
-             "type": "string",
-             "description": "Whether the event blocks time on the calendar. Optional. Possible values are:  \n- \"opaque\" - The event blocks time on the calendar. This is the default value. \n- \"transparent\" - The event does not block time on the calendar.",
-             "default": "opaque"
-            },
-            "updated": {
-             "type": "string",
-             "description": "Last modification time of the event (as a RFC 3339 timestamp). Read-only.",
-             "format": "date-time"
-            },
-            "visibility": {
-             "type": "string",
-             "description": "Visibility of the event. Optional. Possible values are:  \n- \"default\" - Uses the default visibility for events on the calendar. This is the default value. \n- \"public\" - The event is public and event details are visible to all readers of the calendar. \n- \"private\" - The event is private and only event attendees may view event details. \n- \"confidential\" - The event is private. This value is provided for compatibility reasons.",
-             "default": "default"
-            }
-           }
-          },
-          "EventAttachment": {
-           "id": "EventAttachment",
-           "type": "object"
-          },
-          "EventAttendee": {
-           "id": "EventAttendee",
-           "type": "object",
-           "properties": {
-            "additionalGuests": {
-             "type": "integer",
-             "description": "Number of additional guests. Optional. The default is 0.",
-             "default": "0",
-             "format": "int32"
-            },
-            "comment": {
-             "type": "string",
-             "description": "The attendee's response comment. Optional."
-            },
-            "displayName": {
-             "type": "string",
-             "description": "The attendee's name, if available. Optional."
-            },
-            "email": {
-             "type": "string",
-             "description": "The attendee's email address, if available. This field must be present when adding an attendee.",
-             "annotations": {
-              "required": [
-               "calendar.events.import",
-               "calendar.events.insert",
-               "calendar.events.update"
-              ]
-             }
-            },
-            "id": {
-             "type": "string",
-             "description": "The attendee's Profile ID, if available."
-            },
-            "optional": {
-             "type": "boolean",
-             "description": "Whether this is an optional attendee. Optional. The default is False.",
-             "default": "false"
-            },
-            "organizer": {
-             "type": "boolean",
-             "description": "Whether the attendee is the organizer of the event. Read-only. The default is False."
-            },
-            "resource": {
-             "type": "boolean",
-             "description": "Whether the attendee is a resource. Read-only. The default is False.",
-             "default": "false"
-            },
-            "responseStatus": {
-             "type": "string",
-             "description": "The attendee's response status. Possible values are:  \n- \"needsAction\" - The attendee has not responded to the invitation. \n- \"declined\" - The attendee has declined the invitation. \n- \"tentative\" - The attendee has tentatively accepted the invitation. \n- \"accepted\" - The attendee has accepted the invitation."
-            },
-            "self": {
-             "type": "boolean",
-             "description": "Whether this entry represents the calendar on which this copy of the event appears. Read-only. The default is False.",
-             "default": "false"
-            }
-           }
-          },
-          "EventDateTime": {
-           "id": "EventDateTime",
-           "type": "object",
-           "properties": {
-            "date": {
-             "type": "string",
-             "description": "The date, in the format \"yyyy-mm-dd\", if this is an all-day event.",
-             "format": "date"
-            },
-            "dateTime": {
-             "type": "string",
-             "description": "The time, as a combined date-time value (formatted according to RFC 3339). A time zone offset is required unless a time zone is explicitly specified in timeZone.",
-             "format": "date-time"
-            },
-            "timeZone": {
-             "type": "string",
-             "description": "The time zone in which the time is specified. (Formatted as an IANA Time Zone Database name, e.g. \"Europe/Zurich\".) For recurring events this field is required and specifies the time zone in which the recurrence is expanded. For single events this field is optional and indicates a custom time zone for the event start/end."
-            }
-           }
-          },
-          "EventReminder": {
-           "id": "EventReminder",
-           "type": "object",
-           "properties": {
-            "method": {
-             "type": "string",
-             "description": "The method used by this reminder. Possible values are:  \n- \"email\" - Reminders are sent via email. \n- \"sms\" - Reminders are sent via SMS. \n- \"popup\" - Reminders are sent via a UI popup.",
-             "annotations": {
-              "required": [
-               "calendar.calendarList.insert",
-               "calendar.calendarList.update",
-               "calendar.events.import",
-               "calendar.events.insert",
-               "calendar.events.update"
-              ]
-             }
-            },
-            "minutes": {
-             "type": "integer",
-             "description": "Number of minutes before the start of the event when the reminder should trigger.",
-             "format": "int32",
-             "annotations": {
-              "required": [
-               "calendar.calendarList.insert",
-               "calendar.calendarList.update",
-               "calendar.events.import",
-               "calendar.events.insert",
-               "calendar.events.update"
-              ]
-             }
-            }
-           }
-          },
-          "Events": {
-           "id": "Events",
-           "type": "object",
-           "properties": {
-            "accessRole": {
-             "type": "string",
-             "description": "The user's access role for this calendar. Read-only. Possible values are:  \n- \"none\" - The user has no access. \n- \"freeBusyReader\" - The user has read access to free/busy information. \n- \"reader\" - The user has read access to the calendar. Private events will appear to users with reader access, but event details will be hidden. \n- \"writer\" - The user has read and write access to the calendar. Private events will appear to users with writer access, and event details will be visible. \n- \"owner\" - The user has ownership of the calendar. This role has all of the permissions of the writer role with the additional ability to see and manipulate ACLs."
-            },
-            "defaultReminders": {
-             "type": "array",
-             "description": "The default reminders on the calendar for the authenticated user. These reminders apply to all events on this calendar that do not explicitly override them (i.e. do not have reminders.useDefault set to True).",
-             "items": {
-              "$ref": "EventReminder"
-             }
-            },
-            "description": {
-             "type": "string",
-             "description": "Description of the calendar. Read-only."
-            },
-            "etag": {
-             "type": "string",
-             "description": "ETag of the collection."
-            },
-            "items": {
-             "type": "array",
-             "description": "List of events on the calendar.",
-             "items": {
-              "$ref": "Event"
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the collection (\"calendar#events\").",
-             "default": "calendar#events"
-            },
-            "nextPageToken": {
-             "type": "string",
-             "description": "Token used to access the next page of this result. Omitted if no further results are available, in which case nextSyncToken is provided."
-            },
-            "nextSyncToken": {
-             "type": "string",
-             "description": "Token used at a later point in time to retrieve only the entries that have changed since this result was returned. Omitted if further results are available, in which case nextPageToken is provided."
-            },
-            "summary": {
-             "type": "string",
-             "description": "Title of the calendar. Read-only."
-            },
-            "timeZone": {
-             "type": "string",
-             "description": "The time zone of the calendar. Read-only."
-            },
-            "updated": {
-             "type": "string",
-             "description": "Last modification time of the calendar (as a RFC 3339 timestamp). Read-only.",
-             "format": "date-time"
-            }
-           }
-          },
-          "FreeBusyCalendar": {
-           "id": "FreeBusyCalendar",
-           "type": "object",
-           "properties": {
-            "busy": {
-             "type": "array",
-             "description": "List of time ranges during which this calendar should be regarded as busy.",
-             "items": {
-              "$ref": "TimePeriod"
-             }
-            },
-            "errors": {
-             "type": "array",
-             "description": "Optional error(s) (if computation for the calendar failed).",
-             "items": {
-              "$ref": "Error"
-             }
-            }
-           }
-          },
-          "FreeBusyGroup": {
-           "id": "FreeBusyGroup",
-           "type": "object",
-           "properties": {
-            "calendars": {
-             "type": "array",
-             "description": "List of calendars' identifiers within a group.",
-             "items": {
-              "type": "string"
-             }
-            },
-            "errors": {
-             "type": "array",
-             "description": "Optional error(s) (if computation for the group failed).",
-             "items": {
-              "$ref": "Error"
-             }
-            }
-           }
-          },
-          "FreeBusyRequest": {
-           "id": "FreeBusyRequest",
-           "type": "object",
-           "properties": {
-            "calendarExpansionMax": {
-             "type": "integer",
-             "description": "Maximal number of calendars for which FreeBusy information is to be provided. Optional.",
-             "format": "int32"
-            },
-            "groupExpansionMax": {
-             "type": "integer",
-             "description": "Maximal number of calendar identifiers to be provided for a single group. Optional. An error will be returned for a group with more members than this value.",
-             "format": "int32"
-            },
-            "items": {
-             "type": "array",
-             "description": "List of calendars and/or groups to query.",
-             "items": {
-              "$ref": "FreeBusyRequestItem"
-             }
-            },
-            "timeMax": {
-             "type": "string",
-             "description": "The end of the interval for the query.",
-             "format": "date-time"
-            },
-            "timeMin": {
-             "type": "string",
-             "description": "The start of the interval for the query.",
-             "format": "date-time"
-            },
-            "timeZone": {
-             "type": "string",
-             "description": "Time zone used in the response. Optional. The default is UTC.",
-             "default": "UTC"
-            }
-           }
-          },
-          "FreeBusyRequestItem": {
-           "id": "FreeBusyRequestItem",
-           "type": "object",
-           "properties": {
-            "id": {
-             "type": "string",
-             "description": "The identifier of a calendar or a group."
-            }
-           }
-          },
-          "FreeBusyResponse": {
-           "id": "FreeBusyResponse",
-           "type": "object",
-           "properties": {
-            "calendars": {
-             "type": "object",
-             "description": "List of free/busy information for calendars.",
-             "additionalProperties": {
-              "$ref": "FreeBusyCalendar",
-              "description": "Free/busy expansions for a single calendar."
-             }
-            },
-            "groups": {
-             "type": "object",
-             "description": "Expansion of groups.",
-             "additionalProperties": {
-              "$ref": "FreeBusyGroup",
-              "description": "List of calendars that are members of this group."
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#freeBusy\").",
-             "default": "calendar#freeBusy"
-            },
-            "timeMax": {
-             "type": "string",
-             "description": "The end of the interval.",
-             "format": "date-time"
-            },
-            "timeMin": {
-             "type": "string",
-             "description": "The start of the interval.",
-             "format": "date-time"
-            }
-           }
-          },
-          "Setting": {
-           "id": "Setting",
-           "type": "object",
-           "properties": {
-            "etag": {
-             "type": "string",
-             "description": "ETag of the resource."
-            },
-            "id": {
-             "type": "string",
-             "description": "The id of the user setting."
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the resource (\"calendar#setting\").",
-             "default": "calendar#setting"
-            },
-            "value": {
-             "type": "string",
-             "description": "Value of the user setting. The format of the value depends on the ID of the setting. It must always be a UTF-8 string of length up to 1024 characters."
-            }
-           }
-          },
-          "Settings": {
-           "id": "Settings",
-           "type": "object",
-           "properties": {
-            "etag": {
-             "type": "string",
-             "description": "Etag of the collection."
-            },
-            "items": {
-             "type": "array",
-             "description": "List of user settings.",
-             "items": {
-              "$ref": "Setting"
-             }
-            },
-            "kind": {
-             "type": "string",
-             "description": "Type of the collection (\"calendar#settings\").",
-             "default": "calendar#settings"
-            },
-            "nextPageToken": {
-             "type": "string",
-             "description": "Token used to access the next page of this result. Omitted if no further results are available, in which case nextSyncToken is provided."
-            },
-            "nextSyncToken": {
-             "type": "string",
-             "description": "Token used at a later point in time to retrieve only the entries that have changed since this result was returned. Omitted if further results are available, in which case nextPageToken is provided."
-            }
-           }
-          },
-          "TimePeriod": {
-           "id": "TimePeriod",
-           "type": "object",
-           "properties": {
-            "end": {
-             "type": "string",
-             "description": "The (exclusive) end of the time period.",
-             "format": "date-time"
-            },
-            "start": {
-             "type": "string",
-             "description": "The (inclusive) start of the time period.",
-             "format": "date-time"
-            }
-           }
-          }
-         },
-         "resources": {
-          "acl": {
-           "methods": {
-            "delete": {
-             "id": "calendar.acl.delete",
-             "path": "calendars/{calendarId}/acl/{ruleId}",
-             "httpMethod": "DELETE",
-             "description": "Deletes an access control rule.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "ruleId": {
-               "type": "string",
-               "description": "ACL rule identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "ruleId"
-             ],
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "get": {
-             "id": "calendar.acl.get",
-             "path": "calendars/{calendarId}/acl/{ruleId}",
-             "httpMethod": "GET",
-             "description": "Returns an access control rule.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "ruleId": {
-               "type": "string",
-               "description": "ACL rule identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "ruleId"
-             ],
-             "response": {
-              "$ref": "AclRule"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            },
-            "insert": {
-             "id": "calendar.acl.insert",
-             "path": "calendars/{calendarId}/acl",
-             "httpMethod": "POST",
-             "description": "Creates an access control rule.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "AclRule"
-             },
-             "response": {
-              "$ref": "AclRule"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "list": {
-             "id": "calendar.acl.list",
-             "path": "calendars/{calendarId}/acl",
-             "httpMethod": "GET",
-             "description": "Returns the rules in the access control list for the calendar.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted ACLs in the result. Deleted ACLs are represented by role equal to \"none\". Deleted ACLs will always be included if syncToken is provided. Optional. The default is False.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All entries deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "response": {
-              "$ref": "Acl"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ],
-             "supportsSubscription": true
-            },
-            "patch": {
-             "id": "calendar.acl.patch",
-             "path": "calendars/{calendarId}/acl/{ruleId}",
-             "httpMethod": "PATCH",
-             "description": "Updates an access control rule. This method supports patch semantics.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "ruleId": {
-               "type": "string",
-               "description": "ACL rule identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "ruleId"
-             ],
-             "request": {
-              "$ref": "AclRule"
-             },
-             "response": {
-              "$ref": "AclRule"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "update": {
-             "id": "calendar.acl.update",
-             "path": "calendars/{calendarId}/acl/{ruleId}",
-             "httpMethod": "PUT",
-             "description": "Updates an access control rule.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "ruleId": {
-               "type": "string",
-               "description": "ACL rule identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "ruleId"
-             ],
-             "request": {
-              "$ref": "AclRule"
-             },
-             "response": {
-              "$ref": "AclRule"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "watch": {
-             "id": "calendar.acl.watch",
-             "path": "calendars/{calendarId}/acl/watch",
-             "httpMethod": "POST",
-             "description": "Watch for changes to ACL resources.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted ACLs in the result. Deleted ACLs are represented by role equal to \"none\". Deleted ACLs will always be included if syncToken is provided. Optional. The default is False.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All entries deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "Channel",
-              "parameterName": "resource"
-             },
-             "response": {
-              "$ref": "Channel"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ],
-             "supportsSubscription": true
-            }
-           }
-          },
-          "calendarList": {
-           "methods": {
-            "delete": {
-             "id": "calendar.calendarList.delete",
-             "path": "users/me/calendarList/{calendarId}",
-             "httpMethod": "DELETE",
-             "description": "Deletes an entry on the user's calendar list.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "get": {
-             "id": "calendar.calendarList.get",
-             "path": "users/me/calendarList/{calendarId}",
-             "httpMethod": "GET",
-             "description": "Returns an entry on the user's calendar list.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "response": {
-              "$ref": "CalendarListEntry"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            },
-            "insert": {
-             "id": "calendar.calendarList.insert",
-             "path": "users/me/calendarList",
-             "httpMethod": "POST",
-             "description": "Adds an entry to the user's calendar list.",
-             "parameters": {
-              "colorRgbFormat": {
-               "type": "boolean",
-               "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "request": {
-              "$ref": "CalendarListEntry"
-             },
-             "response": {
-              "$ref": "CalendarListEntry"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "list": {
-             "id": "calendar.calendarList.list",
-             "path": "users/me/calendarList",
-             "httpMethod": "GET",
-             "description": "Returns entries on the user's calendar list.",
-             "parameters": {
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "minAccessRole": {
-               "type": "string",
-               "description": "The minimum access role for the user in the returned entires. Optional. The default is no restriction.",
-               "enum": [
-                "freeBusyReader",
-                "owner",
-                "reader",
-                "writer"
-               ],
-               "enumDescriptions": [
-                "The user can read free/busy information.",
-                "The user can read and modify events and access control lists.",
-                "The user can read events that are not private.",
-                "The user can read and modify events."
-               ],
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted calendar list entries in the result. Optional. The default is False.",
-               "location": "query"
-              },
-              "showHidden": {
-               "type": "boolean",
-               "description": "Whether to show hidden entries. Optional. The default is False.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. If only read-only fields such as calendar properties or ACLs have changed, the entry won't be returned. All entries deleted and hidden since the previous list request will always be in the result set and it is not allowed to set showDeleted neither showHidden to False.\nTo ensure client state consistency minAccessRole query parameter cannot be specified together with nextSyncToken.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              }
-             },
-             "response": {
-              "$ref": "CalendarList"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            },
-            "patch": {
-             "id": "calendar.calendarList.patch",
-             "path": "users/me/calendarList/{calendarId}",
-             "httpMethod": "PATCH",
-             "description": "Updates an entry on the user's calendar list. This method supports patch semantics.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "colorRgbFormat": {
-               "type": "boolean",
-               "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "CalendarListEntry"
-             },
-             "response": {
-              "$ref": "CalendarListEntry"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "update": {
-             "id": "calendar.calendarList.update",
-             "path": "users/me/calendarList/{calendarId}",
-             "httpMethod": "PUT",
-             "description": "Updates an entry on the user's calendar list.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "colorRgbFormat": {
-               "type": "boolean",
-               "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "CalendarListEntry"
-             },
-             "response": {
-              "$ref": "CalendarListEntry"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "watch": {
-             "id": "calendar.calendarList.watch",
-             "path": "users/me/calendarList/watch",
-             "httpMethod": "POST",
-             "description": "Watch for changes to CalendarList resources.",
-             "parameters": {
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "minAccessRole": {
-               "type": "string",
-               "description": "The minimum access role for the user in the returned entires. Optional. The default is no restriction.",
-               "enum": [
-                "freeBusyReader",
-                "owner",
-                "reader",
-                "writer"
-               ],
-               "enumDescriptions": [
-                "The user can read free/busy information.",
-                "The user can read and modify events and access control lists.",
-                "The user can read events that are not private.",
-                "The user can read and modify events."
-               ],
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted calendar list entries in the result. Optional. The default is False.",
-               "location": "query"
-              },
-              "showHidden": {
-               "type": "boolean",
-               "description": "Whether to show hidden entries. Optional. The default is False.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. If only read-only fields such as calendar properties or ACLs have changed, the entry won't be returned. All entries deleted and hidden since the previous list request will always be in the result set and it is not allowed to set showDeleted neither showHidden to False.\nTo ensure client state consistency minAccessRole query parameter cannot be specified together with nextSyncToken.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              }
-             },
-             "request": {
-              "$ref": "Channel",
-              "parameterName": "resource"
-             },
-             "response": {
-              "$ref": "Channel"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            }
-           }
-          },
-          "calendars": {
-           "methods": {
-            "clear": {
-             "id": "calendar.calendars.clear",
-             "path": "calendars/{calendarId}/clear",
-             "httpMethod": "POST",
-             "description": "Clears a primary calendar. This operation deletes all data associated with the primary calendar of an account and cannot be undone.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "delete": {
-             "id": "calendar.calendars.delete",
-             "path": "calendars/{calendarId}",
-             "httpMethod": "DELETE",
-             "description": "Deletes a secondary calendar.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "get": {
-             "id": "calendar.calendars.get",
-             "path": "calendars/{calendarId}",
-             "httpMethod": "GET",
-             "description": "Returns metadata for a calendar.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "response": {
-              "$ref": "Calendar"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            },
-            "insert": {
-             "id": "calendar.calendars.insert",
-             "path": "calendars",
-             "httpMethod": "POST",
-             "description": "Creates a secondary calendar.",
-             "request": {
-              "$ref": "Calendar"
-             },
-             "response": {
-              "$ref": "Calendar"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "patch": {
-             "id": "calendar.calendars.patch",
-             "path": "calendars/{calendarId}",
-             "httpMethod": "PATCH",
-             "description": "Updates metadata for a calendar. This method supports patch semantics.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "Calendar"
-             },
-             "response": {
-              "$ref": "Calendar"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "update": {
-             "id": "calendar.calendars.update",
-             "path": "calendars/{calendarId}",
-             "httpMethod": "PUT",
-             "description": "Updates metadata for a calendar.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "Calendar"
-             },
-             "response": {
-              "$ref": "Calendar"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            }
-           }
-          },
-          "channels": {
-           "methods": {
-            "stop": {
-             "id": "calendar.channels.stop",
-             "path": "channels/stop",
-             "httpMethod": "POST",
-             "description": "Stop watching resources through this channel",
-             "request": {
-              "$ref": "Channel",
-              "parameterName": "resource"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            }
-           }
-          },
-          "colors": {
-           "methods": {
-            "get": {
-             "id": "calendar.colors.get",
-             "path": "colors",
-             "httpMethod": "GET",
-             "description": "Returns the color definitions for calendars and events.",
-             "response": {
-              "$ref": "Colors"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            }
-           }
-          },
-          "events": {
-           "methods": {
-            "delete": {
-             "id": "calendar.events.delete",
-             "path": "calendars/{calendarId}/events/{eventId}",
-             "httpMethod": "DELETE",
-             "description": "Deletes an event.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "eventId": {
-               "type": "string",
-               "description": "Event identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "sendNotifications": {
-               "type": "boolean",
-               "description": "Whether to send notifications about the deletion of the event. Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "eventId"
-             ],
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "get": {
-             "id": "calendar.events.get",
-             "path": "calendars/{calendarId}/events/{eventId}",
-             "httpMethod": "GET",
-             "description": "Returns an event.",
-             "parameters": {
-              "alwaysIncludeEmail": {
-               "type": "boolean",
-               "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-               "location": "query"
-              },
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "eventId": {
-               "type": "string",
-               "description": "Event identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "timeZone": {
-               "type": "string",
-               "description": "Time zone used in the response. Optional. The default is the time zone of the calendar.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "eventId"
-             ],
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            },
-            "import": {
-             "id": "calendar.events.import",
-             "path": "calendars/{calendarId}/events/import",
-             "httpMethod": "POST",
-             "description": "Imports an event. This operation is used to add a private copy of an existing event to a calendar.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "Event"
-             },
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "insert": {
-             "id": "calendar.events.insert",
-             "path": "calendars/{calendarId}/events",
-             "httpMethod": "POST",
-             "description": "Creates an event.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "sendNotifications": {
-               "type": "boolean",
-               "description": "Whether to send notifications about the creation of the new event. Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "Event"
-             },
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "instances": {
-             "id": "calendar.events.instances",
-             "path": "calendars/{calendarId}/events/{eventId}/instances",
-             "httpMethod": "GET",
-             "description": "Returns instances of the specified recurring event.",
-             "parameters": {
-              "alwaysIncludeEmail": {
-               "type": "boolean",
-               "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-               "location": "query"
-              },
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "eventId": {
-               "type": "string",
-               "description": "Recurring event identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "originalStart": {
-               "type": "string",
-               "description": "The original start time of the instance in the result. Optional.",
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events will still be included if singleEvents is False. Optional. The default is False.",
-               "location": "query"
-              },
-              "timeMax": {
-               "type": "string",
-               "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time.",
-               "format": "date-time",
-               "location": "query"
-              },
-              "timeMin": {
-               "type": "string",
-               "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time.",
-               "format": "date-time",
-               "location": "query"
-              },
-              "timeZone": {
-               "type": "string",
-               "description": "Time zone used in the response. Optional. The default is the time zone of the calendar.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "eventId"
-             ],
-             "response": {
-              "$ref": "Events"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            },
-            "list": {
-             "id": "calendar.events.list",
-             "path": "calendars/{calendarId}/events",
-             "httpMethod": "GET",
-             "description": "Returns events on the specified calendar.",
-             "parameters": {
-              "alwaysIncludeEmail": {
-               "type": "boolean",
-               "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-               "location": "query"
-              },
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "iCalUID": {
-               "type": "string",
-               "description": "Specifies event ID in the iCalendar format to be included in the response. Optional.",
-               "location": "query"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "orderBy": {
-               "type": "string",
-               "description": "The order of the events returned in the result. Optional. The default is an unspecified, stable order.",
-               "enum": [
-                "startTime",
-                "updated"
-               ],
-               "enumDescriptions": [
-                "Order by the start date/time (ascending). This is only available when querying single events (i.e. the parameter singleEvents is True)",
-                "Order by last modification time (ascending)."
-               ],
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "privateExtendedProperty": {
-               "type": "string",
-               "description": "Extended properties constraint specified as propertyName=value. Matches only private properties. This parameter might be repeated multiple times to return events that match all given constraints.",
-               "repeated": true,
-               "location": "query"
-              },
-              "q": {
-               "type": "string",
-               "description": "Free text search terms to find events that match these terms in any field, except for extended properties. Optional.",
-               "location": "query"
-              },
-              "sharedExtendedProperty": {
-               "type": "string",
-               "description": "Extended properties constraint specified as propertyName=value. Matches only shared properties. This parameter might be repeated multiple times to return events that match all given constraints.",
-               "repeated": true,
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events (but not the underlying recurring event) will still be included if showDeleted and singleEvents are both False. If showDeleted and singleEvents are both True, only single instances of deleted events (but not the underlying recurring events) are returned. Optional. The default is False.",
-               "location": "query"
-              },
-              "showHiddenInvitations": {
-               "type": "boolean",
-               "description": "Whether to include hidden invitations in the result. Optional. The default is False.",
-               "location": "query"
-              },
-              "singleEvents": {
-               "type": "boolean",
-               "description": "Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves. Optional. The default is False.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All events deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.\nThere are several query parameters that cannot be specified together with nextSyncToken to ensure consistency of the client state.\n\nThese are: \n- iCalUID \n- orderBy \n- privateExtendedProperty \n- q \n- sharedExtendedProperty \n- timeMin \n- timeMax \n- updatedMin If the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              },
-              "timeMax": {
-               "type": "string",
-               "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time.",
-               "format": "date-time",
-               "location": "query"
-              },
-              "timeMin": {
-               "type": "string",
-               "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time.",
-               "format": "date-time",
-               "location": "query"
-              },
-              "timeZone": {
-               "type": "string",
-               "description": "Time zone used in the response. Optional. The default is the time zone of the calendar.",
-               "location": "query"
-              },
-              "updatedMin": {
-               "type": "string",
-               "description": "Lower bound for an event's last modification time (as a RFC 3339 timestamp) to filter by. When specified, entries deleted since this time will always be included regardless of showDeleted. Optional. The default is not to filter by last modification time.",
-               "format": "date-time",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "response": {
-              "$ref": "Events"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            },
-            "move": {
-             "id": "calendar.events.move",
-             "path": "calendars/{calendarId}/events/{eventId}/move",
-             "httpMethod": "POST",
-             "description": "Moves an event to another calendar, i.e. changes an event's organizer.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier of the source calendar where the event currently is on.",
-               "required": true,
-               "location": "path"
-              },
-              "destination": {
-               "type": "string",
-               "description": "Calendar identifier of the target calendar where the event is to be moved to.",
-               "required": true,
-               "location": "query"
-              },
-              "eventId": {
-               "type": "string",
-               "description": "Event identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "sendNotifications": {
-               "type": "boolean",
-               "description": "Whether to send notifications about the change of the event's organizer. Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "eventId",
-              "destination"
-             ],
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "patch": {
-             "id": "calendar.events.patch",
-             "path": "calendars/{calendarId}/events/{eventId}",
-             "httpMethod": "PATCH",
-             "description": "Updates an event. This method supports patch semantics.",
-             "parameters": {
-              "alwaysIncludeEmail": {
-               "type": "boolean",
-               "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-               "location": "query"
-              },
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "eventId": {
-               "type": "string",
-               "description": "Event identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "sendNotifications": {
-               "type": "boolean",
-               "description": "Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "eventId"
-             ],
-             "request": {
-              "$ref": "Event"
-             },
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "quickAdd": {
-             "id": "calendar.events.quickAdd",
-             "path": "calendars/{calendarId}/events/quickAdd",
-             "httpMethod": "POST",
-             "description": "Creates an event based on a simple text string.",
-             "parameters": {
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "sendNotifications": {
-               "type": "boolean",
-               "description": "Whether to send notifications about the creation of the event. Optional. The default is False.",
-               "location": "query"
-              },
-              "text": {
-               "type": "string",
-               "description": "The text describing the event to be created.",
-               "required": true,
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "text"
-             ],
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "update": {
-             "id": "calendar.events.update",
-             "path": "calendars/{calendarId}/events/{eventId}",
-             "httpMethod": "PUT",
-             "description": "Updates an event.",
-             "parameters": {
-              "alwaysIncludeEmail": {
-               "type": "boolean",
-               "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-               "location": "query"
-              },
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "eventId": {
-               "type": "string",
-               "description": "Event identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "sendNotifications": {
-               "type": "boolean",
-               "description": "Whether to send notifications about the event update (e.g. attendee's responses, title changes, etc.). Optional. The default is False.",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId",
-              "eventId"
-             ],
-             "request": {
-              "$ref": "Event"
-             },
-             "response": {
-              "$ref": "Event"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar"
-             ]
-            },
-            "watch": {
-             "id": "calendar.events.watch",
-             "path": "calendars/{calendarId}/events/watch",
-             "httpMethod": "POST",
-             "description": "Watch for changes to Events resources.",
-             "parameters": {
-              "alwaysIncludeEmail": {
-               "type": "boolean",
-               "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-               "location": "query"
-              },
-              "calendarId": {
-               "type": "string",
-               "description": "Calendar identifier.",
-               "required": true,
-               "location": "path"
-              },
-              "iCalUID": {
-               "type": "string",
-               "description": "Specifies event ID in the iCalendar format to be included in the response. Optional.",
-               "location": "query"
-              },
-              "maxAttendees": {
-               "type": "integer",
-               "description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "orderBy": {
-               "type": "string",
-               "description": "The order of the events returned in the result. Optional. The default is an unspecified, stable order.",
-               "enum": [
-                "startTime",
-                "updated"
-               ],
-               "enumDescriptions": [
-                "Order by the start date/time (ascending). This is only available when querying single events (i.e. the parameter singleEvents is True)",
-                "Order by last modification time (ascending)."
-               ],
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "privateExtendedProperty": {
-               "type": "string",
-               "description": "Extended properties constraint specified as propertyName=value. Matches only private properties. This parameter might be repeated multiple times to return events that match all given constraints.",
-               "repeated": true,
-               "location": "query"
-              },
-              "q": {
-               "type": "string",
-               "description": "Free text search terms to find events that match these terms in any field, except for extended properties. Optional.",
-               "location": "query"
-              },
-              "sharedExtendedProperty": {
-               "type": "string",
-               "description": "Extended properties constraint specified as propertyName=value. Matches only shared properties. This parameter might be repeated multiple times to return events that match all given constraints.",
-               "repeated": true,
-               "location": "query"
-              },
-              "showDeleted": {
-               "type": "boolean",
-               "description": "Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events (but not the underlying recurring event) will still be included if showDeleted and singleEvents are both False. If showDeleted and singleEvents are both True, only single instances of deleted events (but not the underlying recurring events) are returned. Optional. The default is False.",
-               "location": "query"
-              },
-              "showHiddenInvitations": {
-               "type": "boolean",
-               "description": "Whether to include hidden invitations in the result. Optional. The default is False.",
-               "location": "query"
-              },
-              "singleEvents": {
-               "type": "boolean",
-               "description": "Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves. Optional. The default is False.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then. All events deleted since the previous list request will always be in the result set and it is not allowed to set showDeleted to False.\nThere are several query parameters that cannot be specified together with nextSyncToken to ensure consistency of the client state.\n\nThese are: \n- iCalUID \n- orderBy \n- privateExtendedProperty \n- q \n- sharedExtendedProperty \n- timeMin \n- timeMax \n- updatedMin If the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              },
-              "timeMax": {
-               "type": "string",
-               "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time.",
-               "format": "date-time",
-               "location": "query"
-              },
-              "timeMin": {
-               "type": "string",
-               "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time.",
-               "format": "date-time",
-               "location": "query"
-              },
-              "timeZone": {
-               "type": "string",
-               "description": "Time zone used in the response. Optional. The default is the time zone of the calendar.",
-               "location": "query"
-              },
-              "updatedMin": {
-               "type": "string",
-               "description": "Lower bound for an event's last modification time (as a RFC 3339 timestamp) to filter by. When specified, entries deleted since this time will always be included regardless of showDeleted. Optional. The default is not to filter by last modification time.",
-               "format": "date-time",
-               "location": "query"
-              }
-             },
-             "parameterOrder": [
-              "calendarId"
-             ],
-             "request": {
-              "$ref": "Channel",
-              "parameterName": "resource"
-             },
-             "response": {
-              "$ref": "Channel"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            }
-           }
-          },
-          "freebusy": {
-           "methods": {
-            "query": {
-             "id": "calendar.freebusy.query",
-             "path": "freeBusy",
-             "httpMethod": "POST",
-             "description": "Returns free/busy information for a set of calendars.",
-             "request": {
-              "$ref": "FreeBusyRequest"
-             },
-             "response": {
-              "$ref": "FreeBusyResponse"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            }
-           }
-          },
-          "settings": {
-           "methods": {
-            "get": {
-             "id": "calendar.settings.get",
-             "path": "users/me/settings/{setting}",
-             "httpMethod": "GET",
-             "description": "Returns a single user setting.",
-             "parameters": {
-              "setting": {
-               "type": "string",
-               "description": "The id of the user setting.",
-               "required": true,
-               "location": "path"
-              }
-             },
-             "parameterOrder": [
-              "setting"
-             ],
-             "response": {
-              "$ref": "Setting"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ]
-            },
-            "list": {
-             "id": "calendar.settings.list",
-             "path": "users/me/settings",
-             "httpMethod": "GET",
-             "description": "Returns all user settings for the authenticated user.",
-             "parameters": {
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              }
-             },
-             "response": {
-              "$ref": "Settings"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            },
-            "watch": {
-             "id": "calendar.settings.watch",
-             "path": "users/me/settings/watch",
-             "httpMethod": "POST",
-             "description": "Watch for changes to Settings resources.",
-             "parameters": {
-              "maxResults": {
-               "type": "integer",
-               "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
-               "format": "int32",
-               "minimum": "1",
-               "location": "query"
-              },
-              "pageToken": {
-               "type": "string",
-               "description": "Token specifying which result page to return. Optional.",
-               "location": "query"
-              },
-              "syncToken": {
-               "type": "string",
-               "description": "Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.\nIf the syncToken expires, the server will respond with a 410 GONE response code and the client should clear its storage and perform a full synchronization without any syncToken.\nLearn more about incremental synchronization.\nOptional. The default is to return all entries.",
-               "location": "query"
-              }
-             },
-             "request": {
-              "$ref": "Channel",
-              "parameterName": "resource"
-             },
-             "response": {
-              "$ref": "Channel"
-             },
-             "scopes": [
-              "https://www.googleapis.com/auth/calendar",
-              "https://www.googleapis.com/auth/calendar.readonly"
-             ],
-             "supportsSubscription": true
-            }
-           }
-          }
-         }
-        }
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        2t6Otg/Whh7Whmfw/78++z8NKckWl24BAA==
     http_version: 
-  recorded_at: Thu, 19 Feb 2015 21:11:15 GMT
+  recorded_at: Thu, 26 Mar 2015 20:17:31 GMT
 - request:
     method: get
     uri: https://www.googleapis.com/calendar/v3/calendars/launchacademy.co_l2e3mks1ftini9evjlkq9amokg@group.calendar.google.com/events?timeMax=2015-01-30T23:59:59%2B00:00&timeMin=2015-01-26T00:00:00%2B00:00
@@ -2733,14 +379,14 @@ http_interactions:
     headers:
       User-Agent:
       - |-
-        HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.10.2
+        HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.9.5
          (gzip)
       Accept-Encoding:
       - gzip
       Content-Type:
       - ''
       Authorization:
-      - Bearer ya29.HwH2e90KP1JiDWt3Uepwm-07Ew39j13sIKiNUxUqRbogcWOn2tn7NqNFP8l9YuJ6hQ-S3MhLlhJCdw
+      - Bearer ya29.QgFUaF2HFpASDjJo9j-8KGLJYCTYrNqJbrCyMuelnyi3cKEjKB51Hn-Lp3pZpdLhpBCD0BLgo67KLA
       Cache-Control:
       - no-store
       Accept:
@@ -2751,9 +397,9 @@ http_interactions:
       message: OK
     headers:
       Expires:
-      - Thu, 19 Feb 2015 21:11:16 GMT
+      - Thu, 26 Mar 2015 20:17:31 GMT
       Date:
-      - Thu, 19 Feb 2015 21:11:16 GMT
+      - Thu, 26 Mar 2015 20:17:31 GMT
       Cache-Control:
       - private, max-age=0, must-revalidate, no-transform
       Vary:
@@ -2772,164 +418,105 @@ http_interactions:
       Server:
       - GSE
       Alternate-Protocol:
-      - 443:quic,p=0.08
+      - 443:quic,p=0.5
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-        T0GIlFXFIP5bDl9ymyxvA0IgBl9KZs2gciDMQAwPRj5DQ1gVNw7l0B6xnhwF
-        cFBemjnft0spNIT1rIiaFVeuZ4WYlSyBWYQ5div2rGILC6jkoHp4nlWIhrGm
-        WqqpWO/ZYPCOZ/RXGPX4nfE5WkGWVMPoEmwQKP8SQoXShhYcSAkGDrysvzLf
-        tzOfJVTQs5mvTNBsZL71QPvizCes9CWYbyO3vAjzGapOdP0x84VKPBo6ehYX
-        fKCq2mRsDwc5iBMV74j57E57wkJ31I7aE7d7HbaPPhI3zP0+7eP+yYXXPqrv
-        lPkUUiPKVsy3KGkqTzPfB4nwJRhffUJdIKLMi5PVBNhdQDaAfoo40IcQLQ6w
-        4QLgWSRyqFef3iNZ0o0lPQBTiBLAEmgo7yvLQSwxAUhD6HrAHAHmEuRFdVEu
-        FxIGSDFwF0050PSUixYB22FtbMktPHz/OfrQgXEnwBtSIjEks7c5s0GnAeg4
-        RQk08LIlYS0NNP+SAd6TvbIsix1fMkhJKCVvZsBCOR/KaYoRc13oS95OWEUt
-        qd4yyVXy/gAGgUaBkjweuPLeAl/IGXkZbHACpSUZVEV2GnoLxNxHY9m2mNaB
-        mFNXpqwvBe5Be6dRlvt5AY0sQg4RRnjwVgi6xQTAqsQJTKAYYTSLIyBzT5B0
-        MKj4LsyMPxDj/7pQVXQ6kKvjsYkIZ2boRqTMy2ghKWkcFguWQXAstCrG/4Ut
-        sup2lFrGDxVhXZXiFgi2UoYBfgQfK9OFsS1xqaJhjagmVu5zKdVWUCkxLAQe
-        7MRB9JhLCSGvXPo9XPrsjKK1XUZxPXT/jBnFjUS1cxpVVWwRnZrYfEyjWTEM
-        dAPfDEw3wiqPVcOKUkawsSsadZTryD7qKa2T4/C8eVG0ji4Ce/5ROe9qs16n
-        MW3Pd0CjqtiLo5pMcojtuA00CiWJXlPlxo6K1RU02vVFjgtdAlgKHZgytyjB
-        aSV5HoJICmMAWkB2HRwEJdWwuhGebOCSahqDSAq2hacDQT8XssrPC0/fE+rT
-        dbWl3ExYClgjF/jr5zuXWgKw9U7zJIApL+nvJsV4xQ5CERLCVCPVB4QmEx7y
-        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
+        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
     http_version: 
-  recorded_at: Thu, 19 Feb 2015 21:11:16 GMT
-- request:
-    method: get
-    uri: https://www.googleapis.com/calendar/v3/calendars//events?timeMax=2015-01-30T23:59:59%2B00:00&timeMin=2015-01-26T00:00:00%2B00:00
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      User-Agent:
-      - |-
-        HorizonDashboard/0.0.1 google-api-ruby-client/0.8.2 Mac OS X/10.10.1
-         (gzip)
-      Accept-Encoding:
-      - gzip
-      Content-Type:
-      - ''
-      Authorization:
-      - Bearer ya29.HwH2e90KP1JiDWt3Uepwm-07Ew39j13sIKiNUxUqRbogcWOn2tn7NqNFP8l9YuJ6hQ-S3MhLlhJCdw
-      Cache-Control:
-      - no-store
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Cache-Control:
-      - no-cache, no-store, max-age=0, must-revalidate
-      Pragma:
-      - no-cache
-      Expires:
-      - Fri, 01 Jan 1990 00:00:00 GMT
-      Date:
-      - Fri, 27 Feb 2015 17:40:11 GMT
-      Vary:
-      - Origin
-      - X-Origin
-      Content-Type:
-      - text/html; charset=UTF-8
-      Content-Encoding:
-      - gzip
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      Server:
-      - GSE
-      Alternate-Protocol:
-      - 443:quic,p=0.08
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAAPPLL1Fwyy/NSwEATYx0sQkAAAA=
-    http_version: 
-  recorded_at: Fri, 27 Feb 2015 17:40:13 GMT
+  recorded_at: Thu, 26 Mar 2015 20:17:31 GMT
 recorded_with: VCR 2.9.3
