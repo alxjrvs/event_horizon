@@ -59,27 +59,38 @@ describe Submission do
       expect(submission.comments_count).to eq(5)
     end
   end
-  describe "authorizing grading" do
-    it "authorizes admins" do
-      admin = FactoryGirl.create(:admin)
 
-      expect(submission).to be_gradable_by(admin)
+  describe "#gradable_by?" do
+
+    context "user is admin" do
+      let(:admin) { FactoryGirl.create(:admin) }
+
+      context "has not been graded" do
+        it "returns true" do
+          expect(submission).to be_gradable_by(admin)
+        end
+      end
+
+      context "has been graded" do
+        it "returns false" do
+          grade = FactoryGirl.create(:submission_grade)
+          expect(grade.submission).to_not be_gradable_by(admin)
+        end
+      end
     end
 
-    it "does not authorize nonadmins" do
-      user = FactoryGirl.create(:user)
+    context "user is not admin" do
+      it "returns false" do
+        user = FactoryGirl.create(:user)
 
-      expect(submission).to_not be_gradable_by(user)
+        expect(submission).to_not be_gradable_by(user)
+      end
     end
 
-    it "does not authorize nil" do
-      expect(submission).to_not be_gradable_by(nil)
-    end
-
-    it 'is not gradable if it has already been graded' do
-      admin = FactoryGirl.build(:admin)
-      grade = FactoryGirl.create(:submission_grade)
-      expect(grade.submission).to_not be_gradable_by(admin)
+    context "user is guest" do
+      it "returns false" do
+        expect(submission).to_not be_gradable_by(Guest.new)
+      end
     end
   end
 
