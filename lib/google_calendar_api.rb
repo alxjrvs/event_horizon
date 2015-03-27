@@ -13,7 +13,7 @@ class GoogleCalendarAPI
   end
 
   def event_json
-    fetch_events
+    fetch_events.map { |event| event_json_data_format(event) }.map{ |event| event.to_json }
   end
 
   protected
