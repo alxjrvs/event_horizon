@@ -3,6 +3,16 @@ require "rails_helper"
 describe Question do
   it_behaves_like "a votable object"
 
+  describe '#custom_error' do
+    it 'returns an error from a QuestionError' do
+      question_error = stub
+      QuestionError.expects(:new).returns(question_error)
+      question_error.expects(:nice_message)
+      question = Question.create(user: FactoryGirl.create(:user))
+      question.custom_error
+    end
+  end
+
   describe '.filtered' do
     it 'delegates to the QuestionFilter filter method' do
       question_filter = stub

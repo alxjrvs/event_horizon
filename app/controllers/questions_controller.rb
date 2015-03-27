@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
       flash[:info] = "Question saved."
       redirect_to question_path(@question)
     else
-      flash[:alert] = "Failed to save question."
+      flash[:alert] = @question.custom_error
       render :new
     end
   end
