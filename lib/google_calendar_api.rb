@@ -8,7 +8,7 @@ class GoogleCalendarAPI
   end
 
   def events
-    results = fetch_events.map { |json| CalendarEvent.new(event_json(json)) }
+    results = fetch_events.map { |json| CalendarEvent.new(event_json_data_format(json)) }
     results.reject { |event| event.start_time.nil? || event.end_time.nil? }
   end
 
@@ -41,7 +41,7 @@ class GoogleCalendarAPI
     json_data["items"]
   end
 
-  def event_json(json)
+  def event_json_data_format(json)
     {
       start_time: parse_date_string(json, "start"),
       end_time: parse_date_string(json, "end"),
