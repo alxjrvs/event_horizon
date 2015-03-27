@@ -1,9 +1,9 @@
 require "rails_helper"
 
-describe GoogleCalendarAdapter, :vcr do
+describe GoogleCalendarAPI, :vcr do
   describe "#fetch_events" do
     let(:calendar) do
-      GoogleCalendarAdapter.new(ENV["DEFAULT_GOOGLE_CALENDAR_ID"])
+      GoogleCalendarAPI.new(ENV["DEFAULT_GOOGLE_CALENDAR_ID"])
     end
 
     it "should return a array of event data" do

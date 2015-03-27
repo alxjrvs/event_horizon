@@ -1,22 +1,20 @@
 require "rails_helper"
 
-feature "view dashboard calendar", :vcr do
-  # As a user on my dashboard
-  # I want to see upcoming events
-  # So that I can be informed about the happenings of the cohort.
-
-  # Acceptance Criteria:
-  # - [x] I can see today and tomorrow's events
-  # - [x] Events that have already started are shown in a lesser
-  #   visual priority
-  # - [x] I can click on an event and it links to the event in
-  #   the calendar
-
+feature "view dashboard calendar" do
   let(:user) do
-    FactoryGirl.create(
-      :user_with_calendar,
+    FactoryGirl.create(:user_with_calendar,
       calendar_args: { cid: ENV["DEFAULT_GOOGLE_CALENDAR_ID"] }
     )
+  end
+  let(:event1) do {
+      "htmlLink"=>"www.google.com/calendar", "summary"=>"Community: Boston MySQL Monthly Meetup",
+      "start"=>{"dateTime"=>"2015-02-09T19:00:00-05:00"}, "end"=>{"dateTime"=>"2015-02-09T20:00:00-05:00"}
+    }
+  end
+  let(:event2) do {
+      "htmlLink"=>"www.google.com/calendar", "summary"=>"Past Event",
+      "start"=>{"dateTime"=>"2015-02-09T09:00:00-05:00"}, "end"=>{"dateTime"=>"2015-02-09T10:00:00-05:00"}
+    }
   end
 
   before(:each) do
@@ -25,12 +23,13 @@ feature "view dashboard calendar", :vcr do
 
   after(:each) do
     Redis.current.flushdb
+    GoogleCalendarAPIFake.clear_events
   end
 
   context "with events in the calendar" do
-
     before(:each) do
-      stub_calendar_start_and_end_time("2015/02/09")
+      GoogleCalendarAPIFake.set_event(event1)
+      GoogleCalendarAPIFake.set_event(event2)
     end
 
     scenario "user sees event information" do
@@ -42,8 +41,7 @@ feature "view dashboard calendar", :vcr do
         to include 'www.google.com/calendar'
     end
 
-    scenario %"events that have already started have a class of
-      '.past-event'" do
+    scenario %"events that have already started have a class of '.past-event'" do
       sign_in_as(user)
       visit dashboard_path
       expect(page).to have_css("table.calendar tr.past-event")
@@ -51,30 +49,13 @@ feature "view dashboard calendar", :vcr do
         expect(page).to have_content("Past Event")
       end
     end
-
   end
 
   context "with no events in the calendar" do
-
-    before(:each) do
-      stub_calendar_start_and_end_time("2015/01/31")
-    end
-
     scenario "'no upcoming events' is displayed" do
       sign_in_as(user)
       visit dashboard_path
       expect(page).to have_content("No upcoming events")
     end
-
   end
-end
-
-def stub_calendar_start_and_end_time(datetime_string)
-  datetime = DateTime.parse(datetime_string)
-  start_time = datetime.beginning_of_day
-  end_time = datetime.end_of_day + 1.day
-
-  Calendar.any_instance.stubs(:default_start_time).returns(start_time)
-
-  Calendar.any_instance.stubs(:default_end_time).returns(end_time)
 end
