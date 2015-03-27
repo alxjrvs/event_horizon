@@ -7,7 +7,26 @@ class GoogleCalendarAPI
     @calendar_id = calendar_id
   end
 
-  def fetch_events(start_time = nil, end_time = nil)
+  def events
+    results = fetch_events.map { |json| CalendarEvent.new(event_json(json)) }
+    results.reject { |event| event.start_time.nil? || event.end_time.nil? }
+  end
+
+  def event_json
+    fetch_events
+  end
+
+  protected
+
+  def default_start_time
+    DateTime.now.beginning_of_day
+  end
+
+  def default_end_time
+    DateTime.now.end_of_day + 1.day
+  end
+
+  def fetch_events(start_time = default_start_time, end_time = default_end_time)
     request_params = { calendarId: calendar_id }
     request_params[:timeMin] = start_time if start_time
     request_params[:timeMax] = end_time if end_time
@@ -22,7 +41,24 @@ class GoogleCalendarAPI
     json_data["items"]
   end
 
-  protected
+  def event_json(json)
+    {
+      start_time: parse_date_string(json, "start"),
+      end_time: parse_date_string(json, "end"),
+      summary: json["summary"],
+      url: json["htmlLink"]
+    }
+  end
+
+  def parse_date_string(json, key)
+    return nil unless json[key]
+
+    if json[key]["date"]
+      Date.parse(json[key]["date"])
+    elsif json[key]["dateTime"]
+      DateTime.parse(json[key]["dateTime"])
+    end
+  end
 
   def key
     if ENV["GOOGLE_P12_PEM"]

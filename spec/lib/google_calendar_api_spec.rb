@@ -7,16 +7,16 @@ describe GoogleCalendarAPI, :vcr do
     end
 
     it "should return a array of event data" do
-      events = calendar.fetch_events
+      events = calendar.events
       expect(events).to be_an Array
-      expect(events.first["kind"]).to eq("calendar#event")
+      expect(events.first).to be_a CalendarEvent
     end
 
     it "should scope events to a date range" do
-      start_time = DateTime.parse("2015/01/26").beginning_of_day
-      end_time = DateTime.parse("2015/01/30").end_of_day
-      events = calendar.fetch_events(start_time, end_time)
-      event_time = DateTime.parse(events.first["start"]["dateTime"])
+      start_time = DateTime.now.beginning_of_day
+      end_time = DateTime.now.end_of_day + 1.day
+      events = calendar.events
+      event_time = events.first.start_time
 
       expect(event_time).to be_between(start_time, end_time)
     end

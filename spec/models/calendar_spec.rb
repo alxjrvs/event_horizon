@@ -1,10 +1,24 @@
 require "rails_helper"
 
 describe Calendar do
+  let(:event) do {
+    "summary" => "some summary", "url" => "some link",
+    "start_time" => Date.today.to_s, "end_time" => Date.today.to_s}
+  end
+
+  before(:each) do
+    GoogleCalendarAPIFake.set_event(event)
+  end
+
+  after(:each) do
+    GoogleCalendarAPIFake.clear_events
+  end
+
   it { should have_many(:teams) }
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:cid) }
+
 
   describe "events" do
     it 'returns an array of CalendarEvents' do
@@ -15,18 +29,18 @@ describe Calendar do
         [
           {
             "summary" => "some summary",
-            "htmlLink" => "some link",
-            "start" => { "date" => Date.today },
-            "end" => { "date" => Date.today }
+            "url" => "some link",
+            "start_time" => Date.today,
+            "end_time" => Date.today
           }
         ].to_json
       )
-      CalendarEvent.stubs(:new).with(
-        url: "some link",
-        summary: "some summary",
-        end_time: Date.today,
-        start_time: Date.today,
-      ).returns(ce1)
+      CalendarEvent.stubs(:new).with({
+        "summary" => "some summary",
+        "url" => "some link",
+        "end_time" => Date.today.to_s,
+        "start_time" => Date.today.to_s,
+      }).returns(ce1)
 
       expect(Calendar.new(cid: 'cid', name: 'name').events).to match_array([ce1])
     end

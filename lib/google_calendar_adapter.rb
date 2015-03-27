@@ -5,8 +5,12 @@ class GoogleCalendarAdapter
     @calendar = Rails.configuration.google_calendar.new(calendar_id)
   end
 
-  def fetch_events(start_time = nil, end_time = nil)
-    @calendar.fetch_events(start_time, end_time)
+  def events
+    @calendar.events
+  end
+
+  def event_json
+    @calendar.event_json
   end
 
   def calendar_id
