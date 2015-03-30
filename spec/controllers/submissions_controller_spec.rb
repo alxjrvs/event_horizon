@@ -1,10 +1,11 @@
 require "rails_helper"
 
 describe SubmissionsController do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:lesson) { FactoryGirl.create(:lesson) }
 
   context "api" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:lesson) { FactoryGirl.create(:lesson) }
+
     describe "POST create" do
       context "with valid authentication" do
         it "successfully stores the submission" do
@@ -41,7 +42,21 @@ describe SubmissionsController do
   end
 
   context "web request" do
-    describe "POST create" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:lesson) { FactoryGirl.create(:lesson) }
+
+    describe '#index' do
+      it 'calls the submission_filter' do
+        session[:user_id] = user.id
+        submissions_filter = stub
+        SubmissionFilter.expects(:new).with(user, lesson.submissions).returns(submissions_filter)
+        submissions_filter.expects(:viewable_submissions)
+
+        get :index, lesson_slug: lesson.slug
+      end
+    end
+
+    describe "#create" do
       context "as an authenticated user" do
         it "redirects after successful create" do
           session[:user_id] = user.id
@@ -73,7 +88,7 @@ describe SubmissionsController do
       end
     end
 
-    describe "PUT update" do
+    describe "#update" do
       it "prevents non-admin users from marking submissions as featured" do
         submission = FactoryGirl.create(
           :submission, featured: false, user: user
@@ -87,7 +102,7 @@ describe SubmissionsController do
       end
     end
 
-    describe "GET show" do
+    describe "#show" do
       it "allows access to the submitting user" do
         submission = FactoryGirl.create(:submission, user: user)
         session[:user_id] = user.id

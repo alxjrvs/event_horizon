@@ -3,10 +3,7 @@ class SubmissionsController < ApplicationController
 
   def index
     @lesson = Lesson.find_by!(slug: params[:lesson_slug])
-    @submissions = @lesson.
-      submissions_viewable_by(current_user).
-      order(featured: :desc).
-      includes(:user)
+    @submissions = SubmissionFilter.new(current_user, @lesson.submissions).viewable_submissions
   end
 
   def show
