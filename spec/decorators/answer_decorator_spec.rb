@@ -16,7 +16,7 @@ describe AnswerDecorator do
 
     context 'authorized user' do
       it 'displays link with arrow up' do
-        helpers.stubs(:current_user).returns(FactoryGirl.create(:user))
+        allow(helpers).to receive(:current_user).and_return(create(:user))
         result = answer.display_upvote
         markup = Capybara.string(result)
         expect(markup).to have_selector('i.upvote')
@@ -35,7 +35,7 @@ describe AnswerDecorator do
 
     context 'authorized user' do
       it 'displays link with arrow down' do
-        helpers.stubs(:current_user).returns(FactoryGirl.create(:user))
+        allow(helpers).to receive(:current_user).and_return(create(:user))
         result = answer.display_downvote
         markup = Capybara.string(result)
         expect(markup).to have_selector('i.downvote')
