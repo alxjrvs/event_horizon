@@ -16,7 +16,7 @@ describe GoogleCalendarAPI, :vcr do
       start_time = DateTime.now.beginning_of_day
       end_time = DateTime.now.end_of_day + 1.day
       events = calendar.events
-      event_time = events.first.start_time
+      event_time = events.last.start_time
 
       expect(event_time).to be_between(start_time, end_time)
     end

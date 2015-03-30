@@ -34,7 +34,7 @@ class Calendar < ActiveRecord::Base
   end
 
   def calendar_events_from_redis
-    redis_events.map { |event| CalendarEvent.new(event) }
+    redis_events.map { |event| CalendarEvent.new(JSON.parse(event)) }
   end
 
   def redis_events

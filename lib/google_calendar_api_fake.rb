@@ -26,10 +26,10 @@ class GoogleCalendarAPIFake
 
   def event_json_data_format(json)
     {
-      start_time: parse_date_string(json, "start"),
-      end_time: parse_date_string(json, "end"),
-      summary: json["summary"],
-      url: json["htmlLink"]
+      'end_time' => parse_date_string(json, "end"),
+      'start_time' => parse_date_string(json, "start"),
+      'summary' => json["summary"],
+      'url' => json["htmlLink"]
     }
   end
 
