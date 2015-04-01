@@ -3,17 +3,17 @@ require 'rails_helper'
 describe SearchesController do
   describe '#index' do
     it 'sets the expect instance variables' do
-      search_result = stub(:search_result)
-      lessons = stub(:lessons)
-      questions = stub(:questions)
-      results = stub(:results)
+      search_result = double(:search_result)
+      lessons = double(:lessons)
+      questions = double(:questions)
+      results = double(:results)
 
-      SearchResult.expects(:new).with('active record', 'challenge', anything).returns(search_result)
+      expect(SearchResult).to receive(:new).with('active record', 'challenge', anything).and_return(search_result)
 
-      search_result.stubs(:type).returns('challenge')
-      search_result.stubs(:lessons).returns(lessons)
-      search_result.stubs(:questions).returns(questions)
-      search_result.stubs(:total).returns(results)
+      allow(search_result).to receive(:type).and_return('challenge')
+      allow(search_result).to receive(:lessons).and_return(lessons)
+      allow(search_result).to receive(:questions).and_return(questions)
+      allow(search_result).to receive(:total).and_return(results)
 
       get :index, query: 'active record', type: 'challenge'
 
