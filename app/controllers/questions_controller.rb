@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
 
   def index
     @filter = params[:query] || 'newest'
-    @questions = QuestionDecorator.decorate_collection(Question.filtered(@filter))
+    questions = QuestionDecorator.decorate_collection(Question.filtered(@filter))
+    @questions = Kaminari.paginate_array(questions).page(params[:page]).per(25)
   end
 
   def show
