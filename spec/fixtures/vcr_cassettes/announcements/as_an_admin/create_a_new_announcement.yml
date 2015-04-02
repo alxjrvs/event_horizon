@@ -13,7 +13,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 01 Apr 2015 18:53:45 GMT
+      - Thu, 02 Apr 2015 14:40:43 GMT
       Status:
       - 200 OK
       Strict-Transport-Security:
@@ -33,9 +33,9 @@ http_interactions:
       Cache-Control:
       - private, no-store, no-cache
       X-Request-Id:
-      - 9915ccc8-9509-40be-a5a8-c31c3b3f3e30
+      - 3d26b5ce-e722-47ae-b8d2-e036612c42bd
       X-Runtime:
-      - '0.042512'
+      - '0.038109'
       X-Server-Id:
       - 51e430377a8dc1dd98b985696e8f69f71277133f
       Vary:
@@ -46,5 +46,5 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Wed, 01 Apr 2015 18:53:45 GMT
+  recorded_at: Thu, 02 Apr 2015 14:40:43 GMT
 recorded_with: VCR 2.9.3
