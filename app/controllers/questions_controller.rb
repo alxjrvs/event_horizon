@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_via_session,
+    except: [:show, :index]
+
   def index
     @filter = params[:query] || 'newest'
     @questions = QuestionDecorator.decorate_collection(Question.filtered(@filter))
@@ -26,7 +29,7 @@ class QuestionsController < ApplicationController
       flash[:info] = "Question saved."
       redirect_to question_path(@question)
     else
-      flash[:alert] = "Failed to save question."
+      flash[:alert] = @question.custom_error
       render :new
     end
   end

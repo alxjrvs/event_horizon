@@ -36,5 +36,11 @@ feature "view questions" do
         expect(page).to have_content("1")
       end
     end
+
+    scenario "add question button shouldn't appear" do
+      visit questions_path
+
+      expect(page).to_not have_link('Ask A Question')
+    end
   end
 end

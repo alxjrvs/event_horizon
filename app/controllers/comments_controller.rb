@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
 
         CommentNotifier.perform_in(15.minutes, @comment.id)
       else
+        @grade = @submission.grade || @submission.build_grade
         format.html { render "submissions/show" }
         format.json do
           render json: @comment.errors, status: :unprocessable_entity

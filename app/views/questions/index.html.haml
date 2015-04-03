@@ -4,10 +4,11 @@
 %ul.breadcrumbs
   %li.current= link_to "Questions", questions_path
 
-#new-question
-  = link_to new_question_path, class: "button success" do
-    %i.fi-plus
-    Ask A Question
+- unless current_user.guest?
+  #new-question
+    = link_to new_question_path, class: "button success" do
+      %i.fi-plus
+      Ask A Question
 
 
 %dl.sub-nav

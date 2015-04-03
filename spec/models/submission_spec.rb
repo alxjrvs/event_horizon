@@ -1,6 +1,8 @@
 require "rails_helper"
 
 describe Submission do
+  it { should have_one(:grade).dependent(:destroy) }
+
   let(:submission) { FactoryGirl.create(:submission) }
 
   describe "#body=" do
@@ -56,5 +58,55 @@ describe Submission do
       submission.reload
       expect(submission.comments_count).to eq(5)
     end
+  end
+
+  describe "#gradable_by?" do
+
+    context "user is admin" do
+      let(:admin) { FactoryGirl.create(:admin) }
+
+      context "has not been graded" do
+        it "returns true" do
+          expect(submission).to be_gradable_by(admin)
+        end
+      end
+
+      context "has been graded" do
+        it "returns false" do
+          grade = FactoryGirl.create(:submission_grade)
+          expect(grade.submission).to_not be_gradable_by(admin)
+        end
+      end
+    end
+
+    context "user is not admin" do
+      it "returns false" do
+        user = FactoryGirl.create(:user)
+
+        expect(submission).to_not be_gradable_by(user)
+      end
+    end
+
+    context "user is guest" do
+      it "returns false" do
+        expect(submission).to_not be_gradable_by(Guest.new)
+      end
+    end
+  end
+
+  it 'allows an admin to see a grade' do
+    admin = FactoryGirl.build(:admin)
+    grade = FactoryGirl.create(:submission_grade)
+    expect(grade.submission).to be_grade_viewable_by(admin)
+  end
+
+  it 'allows the submission author to see a grade' do
+    grade = FactoryGirl.create(:submission_grade)
+    expect(grade.submission).to be_grade_viewable_by(grade.submission.user)
+  end
+
+  it 'does not allow anyone else to see a grade' do
+    grade = FactoryGirl.create(:submission_grade)
+    expect(grade.submission).to_not be_grade_viewable_by(FactoryGirl.build(:user))
   end
 end

@@ -5,66 +5,47 @@ class Calendar < ActiveRecord::Base
   validates :cid, presence: true
   validates :cid, uniqueness: true
 
-  def events_json
-    # return events if stored in redis
-    if redis.get(cid)
-      api_calendar_data = JSON.parse(redis.get(cid))
-      return api_calendar_data unless api_calendar_data.empty?
-    end
-
-    # fetch events and store in redis
-    result = GoogleCalendarAdapter.new(cid).
-      fetch_events(default_start_time, default_end_time)
-    redis.set(cid, result.to_json)
-    redis.expire(cid, 15.minutes)
-
-    result
+  def self.events(calendar_ids)
+    MultiCalendarFetch.new(calendar_ids).all_events
   end
 
   def events
-    results = events_json.map { |json| CalendarEvent.new(event_json(json)) }
-    results.reject { |event| event.start_time.nil? || event.end_time.nil? }
+    if redis_data_present?
+      fetch_redis_data
+    else
+      save_redis_data
+      calendar.events
+    end
   end
 
-  def default_start_time
-    DateTime.now.beginning_of_day
+  private
+
+  def redis_data_present?
+    redis.get(cid)
   end
 
-  def default_end_time
-    DateTime.now.end_of_day + 1.day
+  def save_redis_data
+    redis.set(cid, calendar.event_json)
+    redis.expire(cid, 15.minutes)
+  end
+
+  def fetch_redis_data
+    calendar_events_from_redis unless redis_events.empty?
+  end
+
+  def calendar_events_from_redis
+    redis_events.map { |event| CalendarEvent.new(JSON.parse(event)) }
+  end
+
+  def redis_events
+    JSON.parse(redis.get(cid))
   end
 
   def redis
     Redis.current
   end
 
-  def self.events(calendar_ids)
-    results = []
-    calendar_ids.each do |calendar_id|
-      results.concat(Calendar.find(calendar_id).events)
-    end
-
-    results.sort_by { |event| event.start_time }
-  end
-
-  private
-
-  def event_json(json)
-    {
-      start_time: parse_date_string(json, "start"),
-      end_time: parse_date_string(json, "end"),
-      summary: json["summary"],
-      url: json["htmlLink"]
-    }
-  end
-
-  def parse_date_string(json, key)
-    return nil unless json[key]
-
-    if json[key]["date"]
-      Date.parse(json[key]["date"])
-    elsif json[key]["dateTime"]
-      DateTime.parse(json[key]["dateTime"])
-    end
+  def calendar
+    @calendar ||= GoogleCalendarAdapter.new(cid)
   end
 end

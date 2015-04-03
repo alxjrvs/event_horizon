@@ -1,34 +1,50 @@
 require "rails_helper"
 
 describe Calendar do
+  let(:event) do {
+    "summary" => "some summary", "url" => "some link",
+    "start_time" => Date.today.to_s, "end_time" => Date.today.to_s}
+  end
+
+  before(:each) do
+    GoogleCalendarAPIFake.set_event(event)
+  end
+
+  after(:each) do
+    GoogleCalendarAPIFake.clear_events
+  end
+
   it { should have_many(:teams) }
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:cid) }
 
-  describe "events" do
-    it 'returns an array of CalendarEvents' do
-      ce1 = stub(start_time: Time.now, end_time: Time.now + 1.hour)
-      redis_db = stub
-      Redis.stubs(:current).returns(redis_db)
-      redis_db.stubs(:get).returns(
-        [
-          {
-            "summary" => "some summary",
-            "htmlLink" => "some link",
-            "start" => { "date" => Date.today },
-            "end" => { "date" => Date.today }
-          }
-        ].to_json
-      )
-      CalendarEvent.stubs(:new).with(
-        url: "some link",
-        summary: "some summary",
-        end_time: Date.today,
-        start_time: Date.today,
-      ).returns(ce1)
 
-      expect(Calendar.new(cid: 'cid', name: 'name').events).to match_array([ce1])
+  describe "events" do
+    context 'when events are stored in Redis' do
+      it 'returns an array of CalendarEvents' do
+        ce1 = double(start_time: Time.now, end_time: Time.now + 1.hour)
+        redis_db = double
+        allow(Redis).to receive(:current).and_return(redis_db)
+        allow(redis_db).to receive(:get).and_return(
+          [
+            {
+              "summary" => "some summary",
+              "url" => "some link",
+              "start_time" => Date.today,
+              "end_time" => Date.today
+            }.to_json
+          ].to_json
+        )
+        allow(CalendarEvent).to receive(:new).with({
+          "summary" => "some summary",
+          "url" => "some link",
+          "end_time" => Date.today.to_s,
+          "start_time" => Date.today.to_s,
+        }).and_return(ce1)
+
+        expect(Calendar.new(cid: 'cid', name: 'name').events).to match_array([ce1])
+      end
     end
   end
 

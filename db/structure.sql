@@ -617,6 +617,39 @@ ALTER SEQUENCE source_files_id_seq OWNED BY source_files.id;
 
 
 --
+-- Name: submission_grades; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE submission_grades (
+    id integer NOT NULL,
+    submission_id integer NOT NULL,
+    score integer NOT NULL,
+    comment text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: submission_grades_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE submission_grades_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: submission_grades_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE submission_grades_id_seq OWNED BY submission_grades.id;
+
+
+--
 -- Name: submissions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -939,6 +972,13 @@ ALTER TABLE ONLY source_files ALTER COLUMN id SET DEFAULT nextval('source_files_
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY submission_grades ALTER COLUMN id SET DEFAULT nextval('submission_grades_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY submissions ALTER COLUMN id SET DEFAULT nextval('submissions_id_seq'::regclass);
 
 
@@ -1111,6 +1151,14 @@ ALTER TABLE ONLY ratings
 
 ALTER TABLE ONLY source_files
     ADD CONSTRAINT source_files_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: submission_grades_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY submission_grades
+    ADD CONSTRAINT submission_grades_pkey PRIMARY KEY (id);
 
 
 --
@@ -1590,6 +1638,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150226195210');
 INSERT INTO schema_migrations (version) VALUES ('20150227154100');
 
 INSERT INTO schema_migrations (version) VALUES ('20150227173610');
+
+INSERT INTO schema_migrations (version) VALUES ('20150301221447');
 
 INSERT INTO schema_migrations (version) VALUES ('20150303153620');
 

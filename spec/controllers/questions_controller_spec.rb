@@ -17,10 +17,10 @@ describe QuestionsController do
 
   describe "#index" do
     it 'assigns a questions and filters instance variables' do
-      questions = stub
-      filtered = stub
-      Question.stubs(:filtered).returns(filtered)
-      QuestionDecorator.stubs(:decorate_collection).with(filtered).returns(questions)
+      questions = double
+      filtered = double
+      allow(Question).to receive(:filtered).and_return(filtered)
+      allow(QuestionDecorator).to receive(:decorate_collection).with(filtered).and_return(questions)
 
       get :index, query: 'unanswered'
       expect(assigns(:questions)).to eq questions

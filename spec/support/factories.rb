@@ -107,6 +107,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :submission_grade do
+    association :submission
+    score :meets_expectation
+  end
+
   factory :source_file do
     submission
     filename "foo.rb"

@@ -63,29 +63,6 @@ feature "questions" do
       sign_in_as(user)
     end
 
-    scenario "submit a valid question" do
-      visit new_question_path
-
-      fill_in "Title", with: "What's for lunch?"
-      fill_in "Body", with: "Please, no more Dumpling Cafe."
-
-      click_button "Ask Question"
-
-      expect(page).to have_content("Question saved.")
-
-      expect(Question.count).to eq(1)
-      expect(page).to have_content("What's for lunch?")
-      expect(page).to have_content("Please, no more Dumpling Cafe.")
-    end
-
-    scenario "submit an invalid question" do
-      visit new_question_path
-      click_button "Ask Question"
-
-      expect(page).to have_content("Failed to save question.")
-      expect(Question.count).to eq(0)
-    end
-
     scenario "edit question" do
       question = FactoryGirl.create(:question, user: user)
 
@@ -115,6 +92,14 @@ feature "questions" do
 
       visit question_path(question)
       expect(page).to_not have_button("Accept Answer")
+    end
+  end
+
+  context "as an unauthenticated guest" do
+    scenario "attempt to ask a question" do
+      visit new_question_path
+      expect(page).
+        to have_content("You need to sign in before continuing.")
     end
   end
 end

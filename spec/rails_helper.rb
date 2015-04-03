@@ -17,6 +17,7 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  config.include(FactoryGirl::Syntax::Methods)
   config.before :each do
     OmniAuth.config.test_mode = true
     OmniAuth.config.logger = Logger.new("/dev/null")

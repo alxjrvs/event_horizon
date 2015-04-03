@@ -9,7 +9,7 @@ describe Guest do
 
   describe '#can_edit?' do
     it 'returns false' do
-      question = stub
+      question = double
       expect(Guest.new.can_edit?(question)).to eq false
     end
   end
