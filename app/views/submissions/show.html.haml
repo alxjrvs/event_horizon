@@ -69,26 +69,33 @@
 
       = f.submit "Submit", class: "button"
 
+#download
+  - if current_user.admin?
+    .download-link
+      = link_to "Download Submission", @submission.archive.url, class: "button"
+
 #grading
   - if @submission.gradable_by?(current_user)
     = form_for [@submission, @grade],
       url: submission_grades_path(@submission),
       as: :grade do |f|
 
-      = f.label :score
-      - @grade.class.scores.each do |key, value|
-        = f.label "score_#{key}", "#{key.humanize}."
-        = f.radio_button :score, key, id: "grade_score_#{key}"
+      %h3
+        Score
+      %ul.grade-list
+        - @grade.class.scores.each do |key, value|
+          %li
+            = f.radio_button :score, key, id: "grade_score_#{key}"
+            = f.label "score_#{key}", "#{key.humanize}."
       = f.label :comment, "Grade comments"
       = f.text_area :comment, rows: 5
-      = f.submit "Submit Grade"
+      = f.submit "Submit Grade", class: "button"
   - elsif @submission.grade_viewable_by?(current_user)
     Grade:
-    %strong= @submission.grade.score.humanize
+    %br
+    %strong
+      = @submission.grade.score.humanize
+    %br
+    %br
     Comment:
-    =simple_format(@submission.grade.comment)
-
-#download
-  - if current_user.admin?
-    .download-link
-      = link_to "Download Submission", @submission.archive.url, class: "button"
+    = simple_format(@submission.grade.comment)
