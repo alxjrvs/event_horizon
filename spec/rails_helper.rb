@@ -6,6 +6,7 @@ require "sidekiq/testing"
 require "shoulda/matchers"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/factories/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/shared/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -17,7 +18,6 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
-  config.include(FactoryGirl::Syntax::Methods)
   config.before :each do
     OmniAuth.config.test_mode = true
     OmniAuth.config.logger = Logger.new("/dev/null")
@@ -28,6 +28,7 @@ RSpec.configure do |config|
     ActionMailer::Base.deliveries.clear
   end
 
+  config.include FactoryGirl::Syntax::Methods
   config.include ApplicationHelper
   config.include AuthenticationHelper
   config.include ArchiveHelper
